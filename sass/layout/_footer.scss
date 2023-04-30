@@ -1,0 +1,70 @@
+.site-footer{
+	background-color: $footer-background;
+	padding: 60px 0;
+	color: $footer-color;
+
+	.copy{ @include em(12) }
+
+	a{ color: $footer-color }
+	
+	.branding{
+		.site-title a, .site-title span{color: $footer-color}
+		.site-title,.site-description{line-height: normal}
+		.site-description{ color: #767982 }
+
+		@media screen and (max-width: 480px){
+			margin: 0 auto;
+		}
+	}
+
+	@media screen and (max-width: 480px){
+		text-align: left;
+	}
+}
+
+.footer-navigation{
+	@media screen and (max-width: 480px){
+		text-align: left;
+	}
+
+	a{
+		text-decoration: none;
+		display: inline-block;
+		padding: 0 15px;
+		line-height: 15px;
+		border-left: 1px solid #767982;
+		transition: .3s ease;
+
+		&:hover{color: $secondary-color}
+
+		&:first-child{
+			border-left:none;
+		}
+		&:last-child{padding-right: 0}
+	}
+}
+
+.social-links{
+	margin: 30px 0 0;
+
+	@media screen and (max-width: 480px){
+		text-align: left;
+	}
+
+	a{
+		width: 36px;
+		height: 36px;
+		text-align: center;
+		background-color: #454851;
+		color: #aaacb5;
+		display: inline-block;
+		border-radius: 50%;
+		line-height: 35px;
+		margin-left: 10px;
+		transition: .3s ease;
+
+		&:hover{
+			background-color:lighten(#454851, 10%);
+		}
+	}
+}

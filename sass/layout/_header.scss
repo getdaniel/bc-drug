@@ -1,0 +1,160 @@
+body{
+	position: relative;
+	font-family: $primary-font;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 30px;
+	color: $body-color;
+
+	@media screen and (max-width: 480px){
+		font-size: 14px;
+	}
+}
+
+.site-header{
+	position: relative;
+	z-index: 99;
+	line-height: normal;
+}
+
+.top-header{
+	background: $footer-background;
+	color: $footer-color;
+	padding: 20px 0;
+
+	a{
+		color: $footer-color;
+		text-decoration: none;
+	}
+}
+
+.member-navigation{
+	.fa{margin-right: 5px}
+	a{
+		display: inline-block;
+		margin-left:20px;
+	}
+}
+
+.bottom-header{
+	background: white;
+	box-shadow: 0 1px 5px rgba(0,0,0,.3);
+	@include clearfix;
+
+	.branding{
+		padding: 15px 0;
+	}
+}
+
+.branding{
+	@include clearfix;
+
+	img.logo-icon{
+		float: left;
+		margin-right: 10px;
+	}
+
+	.site-title,.site-description{ display: table }
+	.site-title{
+		font-size: 1em;
+		margin: 0;
+		text-transform: uppercase;
+		font-weight: 700;
+
+		a{ 
+			color: $primary-color;
+			text-decoration: none;
+
+			span{ color: $secondary-color }
+		}
+
+	}
+	.site-description{
+		@include em(12);
+		margin: 0;
+		// color
+	}
+}
+
+.main-navigation{
+
+
+	.menu-toggle{
+		display: none;
+		background: none;
+		padding: 10px;
+		margin-top: 10px;
+		border: none;
+		outline: none;
+		@media screen and (max-width: 768px){display: block}
+	}
+
+	.menu{
+		list-style: none;
+		margin: 10px 0;
+		padding: 0;
+		margin: 0;
+		@include clearfix;
+
+		@media screen and (max-width: 768px){
+			display: none;
+			position: absolute;
+			top:90%;
+			left:0;
+			width: 100%;
+			background: white;
+			padding: 20px;
+		}
+		@media screen and (min-width: 769px){display: block!important}
+
+		.menu-item{
+			float: left;
+			padding: 0 20px;
+
+			&:last-child{padding-right: 0}
+
+			@media screen and (max-width: 768px){
+				display: block;
+				float: none;
+				
+				a:after{display: none}
+
+			}
+
+			a{
+				padding: 30px 0;
+				display: block;
+				text-decoration: none;
+				color: inherit;
+				font-weight: 300;
+				position: relative;
+				border-bottom: 1px solid transparent;
+				transition: .2s ease;
+
+				&:after{
+					content:"|";
+					position: absolute;
+					right:-20px;
+					font-weight: 100;
+					color: #e4e4e4;
+				}
+
+				@media screen and (max-width: 768px){
+					padding: 10px 20px;
+				}
+			}
+
+			&:first-child{ border-left: none }
+			&:last-child a{ 
+				padding-right: 0;
+				&:after{display: none}
+			}
+
+			&:hover a,&.current-menu-item a{
+				color: $secondary-color;
+				border-bottom:2px solid $secondary-color;
+			}
+		}
+	}	
+
+}
