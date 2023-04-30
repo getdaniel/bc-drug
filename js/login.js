@@ -14,7 +14,7 @@ loginForm.addEventListener('submit', (event) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       alert('Login successful!');
-      registerForm.reset(); // Clear the form
+      loginForm.reset(); // Clear the form
       window.location.href = 'http://localhost:8501'; // Redirect to Streamlit app
     })
     .catch((error) => {
