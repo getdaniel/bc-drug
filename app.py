@@ -1,10 +1,10 @@
 import streamlit as st
+import subprocess
+import base64
+import os
+import pickle
 import pandas as pd
 from PIL import Image
-import subprocess
-import os
-import base64
-import pickle
 
 # Molecular descriptor calculator
 def desc_calc():
@@ -24,7 +24,7 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    load_model = pickle.load(open('ML/aromatase_model.pkl', 'rb'))
+    load_model = pickle.load(open('aromatase.pkl', 'rb'))
     # Apply model to make predictions
     prediction = load_model.predict(input_data)
     st.header('**Prediction output**')
@@ -34,19 +34,15 @@ def build_model(input_data):
     st.write(df)
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
-# Logo image
-image = Image.open('logo.png')
+# Set page title and icon
+st.set_page_config(page_title="Drug Discovery", page_icon="bio_logo.png")
 
+# Set title to be centered
+st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>", unsafe_allow_html=True)
+
+# Add image
+image = Image.open("logo.png")
 st.image(image, use_column_width=True)
-
-# Page title
-st.markdown("""
-# Bioactivity Prediction App (Acetylcholinesterase)
-This app allows you to predict the bioactivity towards inhibting the `Aromatase` enzyme. `Aromatase` is a drug target for Breast Cancer's disease.
-**Credits**
-- Descriptor calculated using [PaDEL-Descriptor](http://www.yapcwsoft.com/dd/padeldescriptor/) [[Read the Paper]](https://doi.org/10.1002/jcc.21707).
----
-""")
 
 # Sidebar
 with st.sidebar.header('1. Upload your CSV data'):
