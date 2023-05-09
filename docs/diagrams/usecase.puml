@@ -1,0 +1,29 @@
+@startuml usecase_diagram
+
+left to right direction
+
+actor User
+actor Admin
+actor AIModel
+
+rectangle UseCaseDiagram {
+  User --> (UserRegister)
+  User -left-> (UserLogin)
+  (UserRegister) -left-> (UserLogin)
+  (UserLogin) --> (View Result)
+  (UserLogin) --> (Logout)
+  (UserLogin) --> (Change Light Mode)
+  (UserLogin) --> (Send Feedback)
+  (UserLogin) --> (Download Predicted Output)
+  (UserLogin) --> (View Predicted History)
+  (UserLogin) --> (Predict)
+
+  AIModel --> (Predict)
+  AIModel --> (Interpret Output)
+
+  Admin --> (AdminLogin)
+  (AdminLogin) --> (View Feedback)
+  (AdminLogin) --> (View Predicted History)
+}
+
+@enduml
