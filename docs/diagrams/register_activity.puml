@@ -1,0 +1,18 @@
+@startuml register_activity_diagram
+
+title Register Activity Diagram
+
+start
+
+:User navigates to register screen;
+:User enters registration information;
+if (Information is valid?) then (yes)
+  :Create new user account;
+  :User is registered and logged in;
+else (no)
+  :Display error message;
+endif
+
+stop
+
+@enduml
