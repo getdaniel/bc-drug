@@ -3,6 +3,24 @@
 title Send Feedback Activity Diagram
 
 start
+
+:UserLogin;
+if (Login successful?) then (yes)
+  :Click on Send Feedback;
+  repeat
+    :Enter Feedback;
+    :Submit Feedback;
+    if (valid form?) then (yes)
+      :Feedback sent successfully;
+      break;
+    else (no)
+      :Error Message;
+    endif
+  repeat while (true)
+else (no)
+  :Error Message;
+endif
+
 stop
 
 @enduml
