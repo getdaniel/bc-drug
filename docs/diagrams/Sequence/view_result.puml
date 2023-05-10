@@ -1,0 +1,26 @@
+@startuml view_result_sequence
+
+title View Result Sequence Diagram
+
+actor User
+boundary System
+control AIModel
+
+User -> System: UserLogin
+activate System
+System -> System: Validate credentials
+alt Valid credentials
+  System -> User: Display homepage
+  User -> System: Submit input data
+  activate System
+  System -> AIModel: Request prediction
+  activate AIModel
+  AIModel -> System: Prediction result
+  deactivate AIModel
+  System -> User: Display prediction result
+  deactivate System
+else Invalid credentials
+  System -> User: Display error message
+end
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml view_prediction_history_sequence_diagram
+
+title View Prediction History Sequence Diagram
+
+actor User
+
+User -> System: Login
+activate System
+System -> System: Validate credentials
+alt Credentials are valid
+    System -> User: Redirect to dashboard
+    activate User
+    User -> System: Click on "View Prediction History"
+    System -> System: Retrieve prediction history
+    alt Prediction history is not empty
+        System -> User: Display prediction history
+        deactivate User
+    else Prediction history is empty
+        System -> User: Display empty prediction history message
+        deactivate User
+    end
+else Credentials are invalid
+    System -> User: Display error message
+    deactivate User
+end
+deactivate System
+@enduml
