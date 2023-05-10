@@ -1,0 +1,24 @@
+@startuml download_prediction_activity
+
+title Download Prediction Output Activity Diagram
+
+start
+
+:UserLogin;
+if (Login successful?) then (yes)
+  :Submit Input Data;
+  :Click on Predict Button;
+
+  if (Valid CSV Data?) then (yes) 
+    :Generate Prediction;
+    :Download Prediction Output;
+  else (no)
+    :Error Message;
+  endif
+else (no)
+  :Error Message;
+endif
+
+stop
+
+@enduml

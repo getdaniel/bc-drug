@@ -1,0 +1,8 @@
+@startuml send_feedback_activity
+
+title Send Feedback Activity Diagram
+
+start
+stop
+
+@enduml

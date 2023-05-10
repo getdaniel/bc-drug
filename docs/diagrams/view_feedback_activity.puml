@@ -1,0 +1,8 @@
+@startuml view_feedback_activity
+
+title View User Feedback Activity Diagram
+
+start
+stop
+
+@enduml
