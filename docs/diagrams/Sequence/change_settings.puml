@@ -1,0 +1,21 @@
+@startuml change_settings_sequence
+
+title Change Settings Sequence Diagram
+
+actor User
+participant System
+
+User -> System: Login
+User -> System: Go to Settings
+User -> System: Select Theme or Update User Info
+
+alt Change Theme
+  User -> System: Select Theme
+else Update User Info
+  User -> System: Update User Info
+end
+
+User -> System: Save Settings
+System -> User: Settings saved
+
+@enduml

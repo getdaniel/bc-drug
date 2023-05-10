@@ -1,0 +1,24 @@
+@startuml download_prediction_sequence
+
+title Download Prediction Output Sequence Diagram
+
+actor User
+participant System
+participant AIModel
+
+User -> System: Submit Input Data
+System -> AIModel: Input Data
+activate AIModel
+AIModel -> System: Data validation result
+deactivate AIModel
+alt Data is valid
+    System -> AIModel: Generate Prediction
+    activate AIModel
+    AIModel -> System: Prediction result
+    System -> User: Prediction result
+    System -> User: Download Prediction
+else Data is invalid
+    System -> User: Error Message
+end
+
+@enduml
