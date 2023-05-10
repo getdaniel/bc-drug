@@ -1,0 +1,36 @@
+@startuml send_feedback
+
+title Send Feedback Sequence Diagram
+
+actor User
+participant System
+
+User -> System: Login
+activate System
+
+System -> User: Display Send Feedback screen
+
+User -> System: Enter Feedback
+System -> System: Validate feedback form
+alt Form is valid
+    System -> System: Send feedback
+    System -> User: Display success message
+else Form is invalid
+    System -> User: Display error message
+    loop until valid form is submitted
+        User -> System: Enter Feedback
+        System -> System: Validate feedback form
+        alt Form is valid
+            System -> System: Send feedback
+            System -> User: Display success message
+        else Form is invalid
+            System -> User: Display error message
+        end
+    end
+end
+
+System -> User: Redirect to main page
+
+deactivate System
+
+@enduml

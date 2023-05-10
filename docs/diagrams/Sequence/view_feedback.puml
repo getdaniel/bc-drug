@@ -1,0 +1,16 @@
+@startuml view_feedback
+
+title View User Feedback Sequence Diagram
+
+actor Administrator
+
+Administrator -> System: Login
+alt Successful Login
+    System -> Database: Retrieve Feedback
+    Database --> System: Feedback Data
+    System -> Administrator: Display Feedback Data
+else Failed Login
+    System -> Administrator: Display Error Message
+end
+
+@enduml
