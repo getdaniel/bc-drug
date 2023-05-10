@@ -1,0 +1,16 @@
+@startuml view_feedback_activity
+
+title View User Feedback Activity Diagram
+
+start
+
+:AdminLogin;
+if (Login successful?) then (yes)
+  :View Feedback;
+else (no)
+  :Error Message;
+endif
+
+stop
+
+@enduml
