@@ -9,14 +9,19 @@ actor AIModel
 rectangle UseCaseDiagram {
   User --> (UserRegister)
   User -left-> (UserLogin)
+  User --> (View Landing Page)
+  
   (UserRegister) -left-> (UserLogin)
   (UserLogin) --> (View Result)
   (UserLogin) --> (Logout)
-  (UserLogin) --> (Change Light Mode)
+  (UserLogin) --> (Settings)
+  (Settings) --> (Change Light Mode)
+  (Settings) --> (Update User Info)
   (UserLogin) --> (Send Feedback)
   (UserLogin) --> (Download Predicted Output)
   (UserLogin) --> (View Predicted History)
   (UserLogin) --> (Predict)
+  (UserLogin) --> (Interpret Output)
 
   AIModel --> (Predict)
   AIModel --> (Interpret Output)
