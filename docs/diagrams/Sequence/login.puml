@@ -1,0 +1,18 @@
+@startuml login_sequence
+
+title Login Sequence Diagram
+
+actor User
+participant System
+participant Database
+
+User -> System: Navigate to login screen
+User -> System: Enter login credentials
+System -> Database: Verify credentials
+alt Credentials are valid
+  System -> User: Login successful
+else Credentials are invalid
+  System -> User: Display error message
+end
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml register_sequence_diagram
+
+title Register Sequence Diagram
+
+actor User
+participant "Registration Screen" as RegScreen
+participant "User Account Database" as DB
+
+User -> RegScreen: Navigate to Register Screen
+RegScreen -> User: Display Register Screen
+User -> RegScreen: Enter registration information
+RegScreen -> RegScreen: Validate information
+alt Information is valid
+    RegScreen -> DB: Create new user account
+    DB --> RegScreen: Confirmation of new account
+    RegScreen -> User: User is registered and logged in
+else Information is not valid
+    RegScreen -> User: Display error message
+end
+
+@enduml
