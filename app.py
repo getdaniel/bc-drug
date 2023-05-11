@@ -24,7 +24,7 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    load_model = pickle.load(open('aromatase.pkl', 'rb'))
+    load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
     # Apply model to make predictions
     prediction = load_model.predict(input_data)
     st.header('**Prediction output**')
@@ -48,7 +48,7 @@ st.image(image, use_column_width=True)
 with st.sidebar.header('1. Upload your CSV data'):
     uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['txt'])
     st.sidebar.markdown("""
-[Example input file](https://raw.githubusercontent.com/dataprofessor/bioactivity-prediction-app/main/example_acetylcholinesterase.txt)
+[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)
 """)
 
 if st.sidebar.button('Predict'):
@@ -63,13 +63,13 @@ if st.sidebar.button('Predict'):
 
     # Read in calculated descriptors and display the dataframe
     st.header('**Calculated molecular descriptors**')
-    desc = pd.read_csv('descriptors_output.csv')
+    desc = pd.read_csv('ML/descriptors_output.csv')
     st.write(desc)
     st.write(desc.shape)
 
     # Read descriptor list used in previously built model
     st.header('**Subset of descriptors from previously built models**')
-    Xlist = list(pd.read_csv('descriptor_list.csv').columns)
+    Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
     st.write(desc_subset)
     st.write(desc_subset.shape)
