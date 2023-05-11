@@ -1,5 +1,2 @@
-pip==23.1.2
 streamlit
-pandas
-base58
-pickle
+pip==23.1.2
