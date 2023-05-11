@@ -41,7 +41,7 @@ st.set_page_config(page_title="Drug Discovery", page_icon="bio_logo.png")
 st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>", unsafe_allow_html=True)
 
 # Add image
-image = Image.open("logo.png")
+image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # Sidebar
