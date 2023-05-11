@@ -1,3 +1,6 @@
 streamlit
-pip3
-java
+pandas
+base58
+subprocess
+os
+pickle
