@@ -1,0 +1,44 @@
+@startuml component_diagram
+
+title Component Diagram
+
+package "Web Client" {
+  [Streamlit Page] as html
+  [Streamlit Server] as streamlit
+}
+
+node "Firebase" {
+  package "Authentication" {
+    [Firebase Authentication] as auth
+  }
+  package "Realtime Database" {
+    [Firebase Realtime Database] as db
+  }
+}
+
+node "AI Engine" {
+  package "Model Training" {
+    [Jupyter Notebook] as jupyter
+    [Cloud-based Training] as cloud_training
+  }
+  [Trained Model] as model
+}
+
+[User] as user
+[ChEMBL Data] as data
+
+html -down-> streamlit : Submit input data
+streamlit --> auth : Login request
+auth --> streamlit : Authentication response
+streamlit --> db : Fetch user feedback and prediction history
+streamlit --> html : Display result
+streamlit -> model : Generate prediction
+data --> jupyter : Data preparation
+jupyter --> cloud_training : Model training
+cloud_training -> model : Store trained model
+model --> streamlit : Prediction results
+user -> auth : Register
+user -> auth : Login
+user --> db : Submit feedback
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml deployement_diagram
+
+title Deployment Diagram
+
+node "GitHub Pages" {
+  [Landing Page] as landing
+  [Login Page] as login
+  [Registration Page] as register
+}
+
+node "Streamlit Sharing" {
+  [Streamlit App] as streamlit
+}
+
+node "Firebase" {
+  package "Authentication" {
+    [Firebase Authentication] as auth
+  }
+  package "Realtime Database" {
+    [Firebase Realtime Database] as db
+  }
+}
+
+node "AI Engine" {
+  package "Model Training" {
+    [Jupyter Notebook] as jupyter
+    [Cloud-based Training] as cloud_training
+  }
+  [Trained Model] as model
+}
+
+[User] as user
+[ChEMBL Data] as data
+
+login --> auth : Login request
+auth --> login : Authentication response
+register -up-> auth : Register request
+auth --> register : Registration response
+streamlit --> db : Fetch user feedback and prediction history
+streamlit --> model : Generate prediction
+data --> jupyter : Data preparation
+jupyter --> cloud_training : Model training
+cloud_training -> model : Store trained model
+model --> streamlit : Prediction results
+user --> db : Submit feedback
+
+@enduml
