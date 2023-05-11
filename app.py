@@ -35,7 +35,7 @@ def build_model(input_data):
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
 # Set page title and icon
-st.set_page_config(page_title="Drug Discovery", page_icon="bio_logo.png")
+st.set_page_config(page_title="Drug Discovery", page_icon="assets/images/bio_logo.png")
 
 # Set title to be centered
 st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>", unsafe_allow_html=True)
