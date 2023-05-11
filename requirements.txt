@@ -1,5 +1,4 @@
 streamlit
 pandas
 base58
-os
 pickle
