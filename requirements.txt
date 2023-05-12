@@ -1,3 +1,2 @@
 streamlit
 pip==23.1.2
-openjdk-8-jdk
