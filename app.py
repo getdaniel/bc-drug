@@ -44,16 +44,22 @@ st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast 
 image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
+# with st.header('1. Upload your CSV data'):
+#     uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
+#     st.markdown("""
+# [Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)
+# """)
 # Input file here
-with st.header('1. Upload your CSV data'):
-    uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
-    st.markdown("""
+st.header('1. Upload your CSV data')
+uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
+st.markdown("""
 [Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)
 """)
 
-if st.sidebar.button('Predict'):
+
+if st.button('Predict'):
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
-    load_data.to_csv('molecule.smi', sep = '\t', header = False, index = False)
+    load_data.to_csv('ML/molecule.smi', sep = '\t', header = False, index = False)
 
     st.header('**Original input data**')
     st.write(load_data)
