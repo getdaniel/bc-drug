@@ -44,13 +44,14 @@ st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast 
 image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
-# with st.header('1. Upload your CSV data'):
-#     uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
-#     st.markdown("""
-# [Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)
-# """)
+# Side bar
+st.sidebar.button("New")
+st.sidebar.button("Send Feedback")
+st.sidebar.button("View History")
+st.sidebar.button("Settings")
+st.sidebar.button("Logout")
+
 # Input file here
-st.header('1. Upload your CSV data')
 uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
 st.markdown("""
 [Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)
