@@ -7,6 +7,8 @@ import pandas as pd
 from PIL import Image
 
 # Molecular descriptor calculator
+
+
 def desc_calc():
     # Performs the descriptor calculation
     bashCommand = "java -Xms2G -Xmx2G -Djava.awt.headless=true -jar ./ML/PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./ML/PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file ML/descriptors_output.csv"
@@ -15,13 +17,18 @@ def desc_calc():
     os.remove('ML/molecule.smi')
 
 # File download
+
+
 def filedownload(df):
     csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
+    # strings <-> bytes conversions
+    b64 = base64.b64encode(csv.encode()).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="prediction.csv">Download Predictions</a>'
     return href
 
 # Model building
+
+
 def build_model(input_data):
     # Reads in saved regression model
     load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
@@ -34,21 +41,34 @@ def build_model(input_data):
     st.write(df)
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
+
 # Set page title and icon
-st.set_page_config(page_title="Drug Discovery", page_icon="assets/images/bio_logo.png")
+st.set_page_config(page_title="Drug Discovery",
+                   page_icon="assets/images/bio_logo.png")
 
 # Set title to be centered
-st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>",
+            unsafe_allow_html=True)
 
 # Add image
 image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # Side bar
+st.markdown(
+    """
+   <style>
+        [data-testid="stSidebar"][aria-expanded="true"]{
+           min-width: 160px;
+           max-width: 150px;
+       }
+    """,
+    unsafe_allow_html=True,
+)
 st.sidebar.button("New")
+st.sidebar.button("Settings")
 st.sidebar.button("Send Feedback")
 st.sidebar.button("View History")
-st.sidebar.button("Settings")
 st.sidebar.button("Logout")
 
 # Input file here
@@ -60,7 +80,7 @@ st.markdown("""
 
 if st.button('Predict'):
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
-    load_data.to_csv('ML/molecule.smi', sep = '\t', header = False, index = False)
+    load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
 
     st.header('**Original input data**')
     st.write(load_data)
