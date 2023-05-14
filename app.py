@@ -65,11 +65,11 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-st.sidebar.button("New")
+st.sidebar.button("New Web")
 st.sidebar.button("Settings")
-st.sidebar.button("Send Feedback")
-st.sidebar.button("View History")
-st.sidebar.button("Logout")
+st.sidebar.button("Feedbacks")
+st.sidebar.button("History")
+st.sidebar.button("Log Out")
 
 # Input file here
 uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
