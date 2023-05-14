@@ -45,6 +45,7 @@ image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # Side bar
+st.set_min_width(500)
 st.sidebar.button("New")
 st.sidebar.button("Send Feedback")
 st.sidebar.button("View History")
@@ -84,4 +85,4 @@ if st.button('Predict'):
     # Apply trained model to make prediction on query compounds
     build_model(desc_subset)
 else:
-    st.info('Upload input data in the sidebar to start!')
+    st.info('Upload input data in the above button to start!')
