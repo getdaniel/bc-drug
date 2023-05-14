@@ -45,8 +45,6 @@ image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # Side bar
-st.set_sidebar_width(300)
-
 st.sidebar.button("New")
 st.sidebar.button("Send Feedback")
 st.sidebar.button("View History")
