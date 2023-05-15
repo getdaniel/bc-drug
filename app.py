@@ -64,16 +64,7 @@ st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
 st.sidebar.button("Feedbacks", use_container_width=True)
 st.sidebar.button("History", use_container_width=True)
-st.sidebar.button("Log Out", use_container_width=True, on_click=lambda: st.experimental_set_query_params(logout=True))
-
-# Check if the user has clicked the "Log Out" button
-if st.experimental_get_query_params().get("logout"):
-    # Redirect to the logout page
-    st.experimental_set_query_params()
-    st.caching.clear_cache()
-    st.experimental_rerun()
-    st.experimental_set_query_params(logout=None)
-    st.experimental_rerun()
+st.sidebar.button("Log Out", use_container_width=True)
 
 # Input file upload section
 uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
