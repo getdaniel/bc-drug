@@ -60,7 +60,7 @@ st.markdown(
 )
 
 # Add buttons to sidebar
-st.sidebar.button("New Web")
+st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings")
 st.sidebar.button("Feedbacks")
 st.sidebar.button("History")
@@ -82,7 +82,7 @@ if st.button("Predict") and uploaded_file is not None:
     load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
 
     # Display original input data
-    st.header('**Original Input Data**')
+    st.header('**Input Data with Dataframe**')
     st.write(load_data)
 
     # Calculate descriptors
