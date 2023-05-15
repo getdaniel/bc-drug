@@ -74,6 +74,16 @@ st.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc
 if uploaded_file is None:
     st.info("No file uploaded or file is empty. Please upload a file.")
 
+# Check if file is uploaded and not empty
+if uploaded_file is not None and uploaded_file.read() != b'':
+    # Check if file content has at least two columns
+    try:
+        load_data = pd.read_table(uploaded_file, sep=' ', header=None)
+        if load_data.shape[1] < 2:
+            raise ValueError('File should have at least 2 columns')
+    except Exception as e:
+        st.error(f"Invalid file format or file does not have at least 2 columns. Please upload a valid file.")
+
 # Prediction section
 if st.button("Predict", use_container_width=True) and uploaded_file is not None:
     # Read input file
@@ -95,7 +105,7 @@ if st.button("Predict", use_container_width=True) and uploaded_file is not None:
     st.write(desc.shape)
 
     # Read descriptor list used in previously built model
-    st.header('**Subset of Descriptors from Previously Built Models**')
+    st.header('**Subset of Descriptors from the Models**')
     Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
     st.write(desc_subset)
