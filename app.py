@@ -102,6 +102,4 @@ if st.button("Predict", use_container_width=True) and uploaded_file is not None:
     st.write(desc_subset.shape)
 
     # Apply trained model to make prediction
-    Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
-    desc_subset = desc[Xlist]
     build_model(desc_subset)
