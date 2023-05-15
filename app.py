@@ -35,6 +35,17 @@ def build_model(input_data):
     st.write(df)
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
+# Feedback modal form
+def feedback_form():
+    # Get user email and message
+    email = st.text_input("Your email address")
+    message = st.text_area("Your message")
+
+    # Submit feedback button
+    if st.button("Submit Feedback"):
+        # Send email and message to your email address or save to database
+        st.success("Thank you for your feedback!")
+
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
@@ -62,7 +73,13 @@ st.markdown(
 # Add buttons to sidebar
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
-st.sidebar.button("Feedbacks", use_container_width=True)
+
+# Feedback button
+if st.sidebar.button("Feedback", use_container_width=True):
+    # Open feedback modal form
+    st.sidebar.markdown("---")
+    feedback_form()
+
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
 
