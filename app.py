@@ -5,6 +5,17 @@ import os
 import pickle
 import pandas as pd
 from PIL import Image
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+from datetime import datetime
+
+
+# Initialize Firebase app
+cred = credentials.Certificate("path/to/serviceAccountKey.json")
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://your-project.firebaseio.com'
+})
 
 # Molecular descriptor calculator
 def desc_calc():
@@ -35,16 +46,35 @@ def build_model(input_data):
     st.write(df)
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
-# Feedback modal form
-def feedback_form():
-    # Get user email and message
-    email = st.text_input("Your email address")
-    message = st.text_area("Your message")
+# Define feedback modal function
+def feedback_modal():
+    # Create modal overlay
+    feedback_modal = st.beta_expander("Send Feedback")
+    with feedback_modal:
+        st.write("Please enter your email and feedback message below:")
 
-    # Submit feedback button
-    if st.button("Submit Feedback"):
-        # Send email and message to your email address or save to database
-        st.success("Thank you for your feedback!")
+        # Email input
+        email = st.text_input("Email:", key="feedback_email")
+
+        # Feedback message input
+        message = st.text_area("Feedback message:", key="feedback_message")
+
+        # "Send Feedback" button
+        if st.button("Send Feedback"):
+            # Check if all fields are filled out
+            if not email or not message:
+                st.warning("Please enter your email and feedback message.")
+            else:
+                # Save feedback to Firebase Realtime Database
+                ref = db.reference('feedback')
+                ref.push({
+                    'email': email,
+                    'message': message,
+                    'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                })
+                st.success("Thank you for your feedback!")
+                email = ""
+                message = ""
 
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
