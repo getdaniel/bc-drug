@@ -10,15 +10,9 @@ from firebase_admin import credentials
 from firebase_admin import db
 from datetime import datetime
 
-# Initialize the default app
-default_app = firebase_admin.initialize_app()
-
 # Initialize Firebase app
-cred = credentials.Certificate("js/drug-discovery-d551f-firebase-adminsdk-dari3-50acf314ae.json")
-firebase_admin.initialize_app(cred, name="stream-app", options={
-    'projectId': "drug-discovery-d551f",
-    'databaseURL': 'https://drug-discovery-d551f-default-rtdb.firebaseio.com'
-})
+cred = credentials.Certificate("js/drug-disovery-db-firebase-adminsdk-hr0ue-87700a6405.json")
+firebase_admin.initialize_app(cred)
 
 # Molecular descriptor calculator
 def desc_calc():
