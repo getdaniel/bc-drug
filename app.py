@@ -10,9 +10,13 @@ from firebase_admin import credentials
 from firebase_admin import db
 from datetime import datetime
 
+# Initialize the default app
+default_app = firebase_admin.initialize_app()
+
 # Initialize Firebase app
 cred = credentials.Certificate("js/drug-discovery-d551f-firebase-adminsdk-dari3-50acf314ae.json")
-firebase_admin.initialize_app(cred, options={
+firebase_admin.initialize_app(cred, name="stream-app", options={
+    'projectId': "drug-discovery-d551f",
     'databaseURL': 'https://drug-discovery-d551f-default-rtdb.firebaseio.com'
 })
 
