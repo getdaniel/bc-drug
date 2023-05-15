@@ -1,3 +1,4 @@
 streamlit
 pip==23.1.2
 scikit-learn==1.2.2
+firebase_admin
