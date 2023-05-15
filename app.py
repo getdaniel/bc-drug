@@ -71,34 +71,34 @@ st.header("Input Data")
 uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
 st.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
 
-# Check if file is uploaded and not empty
-if uploaded_file is not None and uploaded_file.read() != b'':
-    # Check if file content is CSV
-    try:
-        load_data = pd.read_table(uploaded_file, sep=' ', header=None)
-    except:
-        st.error("Invalid file format. Please upload a CSV file.")
-    else:
-        load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
+# Display a message if no file is uploaded
+if uploaded_file is None:
+    st.info("Upload input data to start")
 
-        # Display original input data
-        st.header('**Original Input Data**')
-        st.write(load_data)
+# Prediction section
+if st.button("Predict") and uploaded_file is not None:
+    # Read input file
+    load_data = pd.read_table(uploaded_file, sep=' ', header=None)
+    load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
 
-        # Calculate descriptors
-        with st.spinner("Calculating Descriptors..."):
-            desc_calc()
+    # Display original input data
+    st.header('**Original Input Data**')
+    st.write(load_data)
 
-        # Display calculated descriptors
-        st.header('**Calculated Molecular Descriptors**')
-        desc = pd.read_csv('ML/descriptors_output.csv')
-        st.write(desc)
-        st.write(f"Number of descriptors: {desc.shape[1]}")
+    # Calculate descriptors
+    with st.spinner("Calculating Descriptors..."):
+        desc_calc()
 
-        # Apply trained model to make prediction
-        st.header("**Prediction Output**")
-        Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
-        desc_subset = desc[Xlist]
-        build_model(desc_subset)
+    # Display calculated descriptors
+    st.header('**Calculated Molecular Descriptors**')
+    desc = pd.read_csv('ML/descriptors_output.csv')
+    st.write(desc)
+    st.write(f"Number of descriptors: {desc.shape[1]}")
+
+    # Apply trained model to make prediction
+    st.header("**Prediction Output**")
+    Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
+    desc_subset = desc[Xlist]
+    build_model(desc_subset)
 else:
-    st.error("No file uploaded or file is empty. Please upload a file.")    
+    st.error("No file uploaded or file is empty. Please upload a file.")
