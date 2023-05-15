@@ -1,14 +1,12 @@
+import streamlit as st
 import subprocess
 import base64
 import os
 import pickle
 import pandas as pd
 from PIL import Image
-import streamlit as st
 
 # Molecular descriptor calculator
-
-
 def desc_calc():
     # Performs the descriptor calculation
     bashCommand = "java -Xms2G -Xmx2G -Djava.awt.headless=true -jar ./ML/PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./ML/PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file ML/descriptors_output.csv"
@@ -17,8 +15,6 @@ def desc_calc():
     os.remove('ML/molecule.smi')
 
 # File download
-
-
 def filedownload(df):
     csv = df.to_csv(index=False)
     # strings <-> bytes conversions
@@ -27,8 +23,6 @@ def filedownload(df):
     return href
 
 # Model building
-
-
 def build_model(input_data):
     # Reads in saved regression model
     load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
@@ -40,7 +34,6 @@ def build_model(input_data):
     df = pd.concat([molecule_name, prediction_output], axis=1)
     st.write(df)
     st.markdown(filedownload(df), unsafe_allow_html=True)
-
 
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
@@ -62,55 +55,48 @@ st.markdown(
            min-width: 200px;
            max-width: 200px;
        }
-   </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Decorated sidebar buttons
-new_web_button = st.sidebar.button("New Web")
-settings_button = st.sidebar.button("Settings")
-feedbacks_button = st.sidebar.button("Feedbacks")
-history_button = st.sidebar.button("History")
-log_out_button = st.sidebar.button("Log Out")
+# Add buttons to sidebar
+st.sidebar.button("New Web")
+st.sidebar.button("Settings")
+st.sidebar.button("Feedbacks")
+st.sidebar.button("History")
+st.sidebar.button("Log Out")
 
-# Add decoration to buttons
-buttons = [new_web_button, settings_button, feedbacks_button, history_button, log_out_button]
-for button in buttons:
-    button.style.width = "100%"
-    button.style.hover_background_color = "grey"
+# Input file upload section
+st.sidebar.header("Input Data")
+uploaded_file = st.sidebar.file_uploader("Upload your input file (.txt)", type=['txt'])
+st.sidebar.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
 
-# Input file here
-uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
-st.markdown("""
-[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)
-""")
+# Display a message if no file is uploaded
+if uploaded_file is None:
+    st.info("Upload input data to start")
 
-
-if st.button('Predict'):
+# Prediction section
+if st.sidebar.button("Predict") and uploaded_file is not None:
+    # Read input file
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
     load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
 
-    st.header('**Original input data**')
+    # Display original input data
+    st.header('**Original Input Data**')
     st.write(load_data)
 
-    with st.spinner("Calculating descriptors..."):
+    # Calculate descriptors
+    with st.spinner("Calculating Descriptors..."):
         desc_calc()
 
-    # Read in calculated descriptors and display the dataframe
-    st.header('**Calculated molecular descriptors**')
+    # Display calculated descriptors
+    st.header('**Calculated Molecular Descriptors**')
     desc = pd.read_csv('ML/descriptors_output.csv')
     st.write(desc)
-    st.write(desc.shape)
+    st.write(f"Number of descriptors: {desc.shape[1]}")
 
-    # Read descriptor list used in previously built model
-    st.header('**Subset of descriptors from previously built models**')
+    # Apply trained model to make prediction
+    st.header("**Prediction Output**")
     Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
-    st.write(desc_subset)
-    st.write(desc_subset.shape)
-
-    # Apply trained model to make prediction on query compounds
     build_model(desc_subset)
-else:
-    st.info('Upload input data in the above button to start!')
