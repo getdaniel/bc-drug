@@ -73,7 +73,7 @@ st.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc
 
 # Display a message if no file is uploaded
 if uploaded_file is None:
-    st.info("Upload input data to start")
+    st.info("No file uploaded or file is empty. Please upload a file.")
 
 # Prediction section
 if st.button("Predict") and uploaded_file is not None:
@@ -100,5 +100,3 @@ if st.button("Predict") and uploaded_file is not None:
     Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
     build_model(desc_subset)
-else:
-    st.error("No file uploaded or file is empty. Please upload a file.")
