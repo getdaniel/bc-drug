@@ -13,7 +13,7 @@ from datetime import datetime
 
 # Initialize Firebase app
 cred = credentials.Certificate("js/drug-discovery-d551f-firebase-adminsdk-dari3-50acf314ae.json")
-firebase_admin.initialize_app(cred, {
+firebase_admin.initialize_app(cred, name='my-app', options={
     'databaseURL': 'https://drug-discovery-d551f-default-rtdb.firebaseio.com'
 })
 
