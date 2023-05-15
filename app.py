@@ -93,10 +93,16 @@ if st.button("Predict") and uploaded_file is not None:
     st.header('**Calculated Molecular Descriptors**')
     desc = pd.read_csv('ML/descriptors_output.csv')
     st.write(desc)
-    st.write(f"Number of descriptors: {desc.shape[1]}")
+    st.write(desc.shape)
+
+    # Read descriptor list used in previously built model
+    st.header('**Subset of Descriptors from Previously Built Models**')
+    Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
+    desc_subset = desc[Xlist]
+    st.write(desc_subset)
+    st.write(desc_subset.shape)
 
     # Apply trained model to make prediction
-    st.header("**Prediction Output**")
     Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
     build_model(desc_subset)
