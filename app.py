@@ -12,15 +12,9 @@ from datetime import datetime
 
 # Initialize Firebase app
 cred = credentials.Certificate("js/drug-discovery-d551f-firebase-adminsdk-dari3-50acf314ae.json")
-try:
-    # Try to get the app instance if it has already been initialized
-    firebase_admin.get_app()
-except ValueError:
-    # Initialize the app if it has not been initialized yet
-    firebase_admin.initialize_app(cred, name='streamlit-app', options={
-        'databaseURL': 'https://drug-discovery-d551f-default-rtdb.firebaseio.com'
-    })
-
+firebase_admin.initialize_app(cred, name='streamlit-app', options={
+    'databaseURL': 'https://drug-discovery-d551f-default-rtdb.firebaseio.com'
+})
 
 # Molecular descriptor calculator
 def desc_calc():
