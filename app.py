@@ -10,10 +10,6 @@ from firebase_admin import credentials
 from firebase_admin import db
 from datetime import datetime
 
-# Initialize Firebase app
-cred = credentials.Certificate("js/drug-disovery-db-firebase-adminsdk-hr0ue-87700a6405.json")
-firebase_admin.initialize_app(cred)
-
 # Molecular descriptor calculator
 def desc_calc():
     # Performs the descriptor calculation
@@ -43,36 +39,6 @@ def build_model(input_data):
     st.write(df)
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
-# Define feedback modal function
-def feedback_modal():
-    # Create modal overlay
-    feedback_modal = st.beta_expander("Send Feedback")
-    with feedback_modal:
-        st.write("Please enter your email and feedback message below:")
-
-        # Email input
-        email = st.text_input("Email:", key="feedback_email")
-
-        # Feedback message input
-        message = st.text_area("Feedback message:", key="feedback_message")
-
-        # "Send Feedback" button
-        if st.button("Send Feedback"):
-            # Check if all fields are filled out
-            if not email or not message:
-                st.warning("Please enter your email and feedback message.")
-            else:
-                # Save feedback to Firebase Realtime Database
-                ref = db.reference('feedback')
-                ref.push({
-                    'email': email,
-                    'message': message,
-                    'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                })
-                st.success("Thank you for your feedback!")
-                email = ""
-                message = ""
-
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
@@ -100,13 +66,7 @@ st.markdown(
 # Add buttons to sidebar
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
-
-# Feedback button
-if st.sidebar.button("Feedback", use_container_width=True):
-    # Open feedback modal form
-    st.sidebar.markdown("---")
-    feedback_modal()
-
+st.sidebar.button("Feedback", use_container_width=True)
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
 
