@@ -65,11 +65,62 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-st.sidebar.button("New Web")
-st.sidebar.button("Settings")
-st.sidebar.button("Feedbacks")
-st.sidebar.button("History")
-st.sidebar.button("Log Out")
+
+def styled_sidebar_button(label):
+    """
+    A decorator function that adds some styling to a Streamlit sidebar button.
+    """
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            # Set the button style
+            button_style = 'background-color: transparent; color: white; border: none; border-bottom: 2px solid transparent; padding: 0.5rem 1rem; font-weight: bold;'
+
+            # Add the button to the Streamlit sidebar
+            button_clicked = st.sidebar.button(label, key=label, help=func.__doc__, style=button_style)
+
+            # Call the function if the button is clicked
+            if button_clicked:
+                func(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
+
+# Define the styled buttons using the decorator
+@styled_sidebar_button("New Web")
+def new_web():
+    st.write("New Web clicked!")
+
+@styled_sidebar_button("Settings")
+def settings():
+    st.write("Settings clicked!")
+
+@styled_sidebar_button("Feedbacks")
+def feedbacks():
+    st.write("Feedbacks clicked!")
+
+@styled_sidebar_button("History")
+def history():
+    st.write("History clicked!")
+
+@styled_sidebar_button("Log Out")
+def log_out():
+    st.write("Log Out clicked!")
+
+# Set the CSS style for the sidebar buttons
+st.markdown("""
+    <style>
+        .sidebar .css-1vwm2ni:hover {
+            background-color: #f5f5f5;
+            border-bottom: 2px solid #f5f5f5;
+        }
+
+        .sidebar .css-1vwm2ni {
+            width: 100%;
+            text-align: left;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # Input file here
 uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
