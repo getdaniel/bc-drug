@@ -12,9 +12,9 @@ from datetime import datetime
 
 
 # Initialize Firebase app
-cred = credentials.Certificate("path/to/serviceAccountKey.json")
+cred = credentials.Certificate("js/drug-discovery-d551f-firebase-adminsdk-dari3-50acf314ae.json")
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://your-project.firebaseio.com'
+    'databaseURL': 'https://drug-discovery-d551f-default-rtdb.firebaseio.com'
 })
 
 # Molecular descriptor calculator
@@ -108,7 +108,7 @@ st.sidebar.button("Settings", use_container_width=True)
 if st.sidebar.button("Feedback", use_container_width=True):
     # Open feedback modal form
     st.sidebar.markdown("---")
-    feedback_form()
+    feedback_modal()
 
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
