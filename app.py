@@ -11,6 +11,11 @@ from firebase_admin import db
 from datetime import datetime
 
 
+# Delete the default app if it exists
+if firebase_admin._DEFAULT_APP_NAME in firebase_admin._apps:
+    default_app = firebase_admin.get_app()
+    firebase_admin.delete_app(default_app)
+    
 # Initialize Firebase app
 cred = credentials.Certificate("js/drug-discovery-d551f-firebase-adminsdk-dari3-50acf314ae.json")
 firebase_admin.initialize_app(cred, name='streamlit-app', options={
