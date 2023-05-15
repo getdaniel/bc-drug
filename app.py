@@ -76,7 +76,7 @@ if uploaded_file is None:
     st.info("No file uploaded or file is empty. Please upload a file.")
 
 # Prediction section
-if st.button("Predict") and uploaded_file is not None:
+if st.button("Predict", use_container_width=True) and uploaded_file is not None:
     # Read input file
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
     load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
