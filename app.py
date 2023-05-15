@@ -61,10 +61,10 @@ st.markdown(
 
 # Add buttons to sidebar
 st.sidebar.button("New Web", use_container_width=True)
-st.sidebar.button("Settings")
-st.sidebar.button("Feedbacks")
-st.sidebar.button("History")
-st.sidebar.button("Log Out")
+st.sidebar.button("Settings", use_container_width=True)
+st.sidebar.button("Feedbacks", use_container_width=True)
+st.sidebar.button("History", use_container_width=True)
+st.sidebar.button("Log Out", use_container_width=True)
 
 # Input file upload section
 st.header("Input Data")
