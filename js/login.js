@@ -15,7 +15,7 @@ loginForm.addEventListener('submit', (event) => {
     .then(() => {
       alert('Login successful!');
       loginForm.reset(); // Clear the form
-      window.location.href = 'http://localhost:8501'; // Redirect to Streamlit app
+      window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
     })
     .catch((error) => {
       alert('Error signing in: ' + error.message);
