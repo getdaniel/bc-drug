@@ -1,10 +1,10 @@
-import streamlit as st
 import subprocess
 import base64
 import os
 import pickle
 import pandas as pd
 from PIL import Image
+import streamlit as st
 
 # Molecular descriptor calculator
 
@@ -62,14 +62,23 @@ st.markdown(
            min-width: 200px;
            max-width: 200px;
        }
+   </style>
     """,
     unsafe_allow_html=True,
 )
-st.sidebar.button("New Web")
-st.sidebar.button("Settings")
-st.sidebar.button("Feedbacks")
-st.sidebar.button("History")
-st.sidebar.button("Log Out")
+
+# Decorated sidebar buttons
+new_web_button = st.sidebar.button("New Web")
+settings_button = st.sidebar.button("Settings")
+feedbacks_button = st.sidebar.button("Feedbacks")
+history_button = st.sidebar.button("History")
+log_out_button = st.sidebar.button("Log Out")
+
+# Add decoration to buttons
+buttons = [new_web_button, settings_button, feedbacks_button, history_button, log_out_button]
+for button in buttons:
+    button.style.width = "100%"
+    button.style.hover_background_color = "grey"
 
 # Input file here
 uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
