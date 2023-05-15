@@ -67,16 +67,16 @@ st.sidebar.button("History")
 st.sidebar.button("Log Out")
 
 # Input file upload section
-st.sidebar.header("Input Data")
-uploaded_file = st.sidebar.file_uploader("Upload your input file (.txt)", type=['txt'])
-st.sidebar.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
+st.header("Input Data")
+uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
+st.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
 
 # Display a message if no file is uploaded
 if uploaded_file is None:
     st.info("Upload input data to start")
 
 # Prediction section
-if st.sidebar.button("Predict") and uploaded_file is not None:
+if st.button("Predict") and uploaded_file is not None:
     # Read input file
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
     load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
