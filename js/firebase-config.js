@@ -1,6 +1,7 @@
 const firebaseConfig = {
   apiKey: "AIzaSyDWlsnIKRS93tzZkb58NjvW0c7BIkUMwvA",
   authDomain: "drug-discovery-cbde6.firebaseapp.com",
+  databaseURL: "https://drug-discovery-cbde6-default-rtdb.firebaseio.com",
   projectId: "drug-discovery-cbde6",
   storageBucket: "drug-discovery-cbde6.appspot.com",
   messagingSenderId: "504463909250",
