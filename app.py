@@ -25,7 +25,7 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     if input_data.shape[0] == 0:
-        print("Input data has zero samples. Please provide valid input data.")
+        st.info("Input data has zero samples. Please provide valid input data.")
     else:
         # Reads in saved regression model
         load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
