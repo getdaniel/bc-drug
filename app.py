@@ -24,16 +24,20 @@ def filedownload(df):
 
 # Model building
 def build_model(input_data):
-    # Reads in saved regression model
-    load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
-    # Apply model to make predictions
-    prediction = load_model.predict(input_data)
-    st.header('**Prediction output**')
-    prediction_output = pd.Series(prediction, name='pIC50')
-    molecule_name = pd.Series(load_data[1], name='molecule_name')
-    df = pd.concat([molecule_name, prediction_output], axis=1)
-    st.write(df)
-    st.markdown(filedownload(df), unsafe_allow_html=True)
+    if input_data.shape[0] > 0:
+        # Reads in saved regression model
+        load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
+
+        # Apply model to make predictions
+        prediction = load_model.predict(input_data)
+        st.header('**Prediction output**')
+        prediction_output = pd.Series(prediction, name='pIC50')
+        molecule_name = pd.Series(load_data[1], name='molecule_name')
+        df = pd.concat([molecule_name, prediction_output], axis=1)
+        st.write(df)
+        st.markdown(filedownload(df), unsafe_allow_html=True)
+    else:
+        print("Input data has zero samples. Please provide valid input data.")
 
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
