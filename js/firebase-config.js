@@ -1,12 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDBhYqhbz18Jp6mwGOCC9TZky43yefrsqA",
-  authDomain: "drug-discovery-d551f.firebaseapp.com",
-  databaseURL: "https://drug-discovery-d551f-default-rtdb.firebaseio.com",
-  projectId: "drug-discovery-d551f",
-  storageBucket: "drug-discovery-d551f.appspot.com",
-  messagingSenderId: "627447239524",
-  appId: "1:627447239524:web:6026a4f09580003082a071",
-  measurementId: "G-H2R72M1D5Z"
+  apiKey: "AIzaSyDWlsnIKRS93tzZkb58NjvW0c7BIkUMwvA",
+  authDomain: "drug-discovery-cbde6.firebaseapp.com",
+  projectId: "drug-discovery-cbde6",
+  storageBucket: "drug-discovery-cbde6.appspot.com",
+  messagingSenderId: "504463909250",
+  appId: "1:504463909250:web:d1fb6476bb4a59ca8d6f9b",
+  measurementId: "G-0GMN586SER"
 };
 
 firebase.initializeApp();
