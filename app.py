@@ -6,6 +6,7 @@ import pickle
 import pandas as pd
 from PIL import Image
 
+
 # Molecular descriptor calculator
 def desc_calc():
     # Performs the descriptor calculation
@@ -13,6 +14,7 @@ def desc_calc():
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
     os.remove('ML/molecule.smi')
+
 
 # File download
 def filedownload(df):
@@ -22,10 +24,11 @@ def filedownload(df):
     href = f'<a href="data:file/csv;base64,{b64}" download="prediction.csv">Download Prediction</a>'
     return href
 
+
 # Model building
 def build_model(input_data):
     if input_data.shape[0] == 0:
-        st.info("Input data has zero samples. Please provide valid input data.")
+        st.info("Input data has zero samples/ No descriptor Value. Please provide valid input data.")
     else:
         # Reads in saved regression model
         load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
@@ -38,6 +41,7 @@ def build_model(input_data):
         df = pd.concat([molecule_name, prediction_output], axis=1)
         st.write(df)
         st.markdown(filedownload(df), unsafe_allow_html=True)
+
 
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
@@ -72,7 +76,8 @@ st.sidebar.button("Log Out", use_container_width=True)
 
 # Input file upload section
 uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
-st.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
+st.markdown(
+    "[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
 
 # Display a message if no file is uploaded
 if uploaded_file is None:
