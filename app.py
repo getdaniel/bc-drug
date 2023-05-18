@@ -24,7 +24,9 @@ def filedownload(df):
 
 # Model building
 def build_model(input_data):
-    if input_data.shape[0] > 0:
+    if input_data.shape[0] == 0:
+        print("Input data has zero samples. Please provide valid input data.")
+    else:
         # Reads in saved regression model
         load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
 
@@ -36,8 +38,6 @@ def build_model(input_data):
         df = pd.concat([molecule_name, prediction_output], axis=1)
         st.write(df)
         st.markdown(filedownload(df), unsafe_allow_html=True)
-    else:
-        print("Input data has zero samples. Please provide valid input data.")
 
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
