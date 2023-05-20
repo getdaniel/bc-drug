@@ -72,30 +72,18 @@ st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
 
 # Feedback button in the sidebar
-if st.sidebar.button("Feedback", use_container_width=True):
-    # Set the modal width and height
-    st.markdown(
-        """
-        <style>
-        .reportview-container .main .block-container{
-            max-width: 600px;
-            padding-top: 100px;
-            padding-bottom: 100px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+if st.sidebar.button("Feedback"):
+        # Open the feedback modal
+        feedback_container = st.empty()
 
-    # Open the feedback modal
-    with st:
         # Feedback form in the modal
-        st.header("Feedback")
-        email = st.text_input("Email")
-        message = st.text_area("Message")
-        if st.button("Submit", use_container_width=True):
-            # Handle the feedback submission
-            st.success("Feedback submitted successfully.")
+        with feedback_container:
+            st.header("Feedback")
+            email = st.text_input("Email")
+            message = st.text_area("Message")
+            if st.button("Submit", use_container_width=True):
+                # Handle the feedback submission
+                st.success("Feedback submitted successfully.")
 
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
