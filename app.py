@@ -5,6 +5,8 @@ import subprocess
 import os
 import base64
 import pickle
+from streamlit_modal import Modal
+import streamlit.components.v1 as components
 
 
 # Molecular descriptor calculator
@@ -45,14 +47,14 @@ def build_model(input_data):
 
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
-                   page_icon="assets/images/bio_logo.png")
+                   page_icon="bio_logo.png")
 
 # Set title to be centered
 st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>",
             unsafe_allow_html=True)
 
 # Add image
-image = Image.open("assets/images/logo.png")
+image = Image.open("logo.png")
 st.image(image, use_column_width=True)
 
 # Side bar
@@ -71,19 +73,18 @@ st.markdown(
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
 
+modal = Modal("Feedback", key="feedback_button")
 # Feedback button in the sidebar
-if st.sidebar.button("Feedback"):
-        # Open the feedback modal
-        feedback_container = st.empty()
+if st.sidebar.button("Feedback", use_container_width=True):
+    modal.open()
 
-        # Feedback form in the modal
-        with feedback_container:
-            st.header("Feedback")
-            email = st.text_input("Email")
-            message = st.text_area("Message")
-            if st.button("Submit", use_container_width=True):
-                # Handle the feedback submission
-                st.success("Feedback submitted successfully.")
+if modal.is_open():
+    with modal.container():
+        email = st.text_input("Email")
+        message = st.text_area("Message")
+        if st.button("Submit", use_container_width=True):
+            # Handle the feedback submission
+            st.success("Feedback submitted successfully.")
 
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
