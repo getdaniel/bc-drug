@@ -10,10 +10,10 @@ import pickle
 # Molecular descriptor calculator
 def desc_calc():
     # Performs the descriptor calculation
-    bashCommand = "java -Xms2G -Xmx2G -Djava.awt.headless=true -jar ./ML/PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./ML/PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file ML/descriptors_output.csv"
+    bashCommand = "java -Xms2G -Xmx2G -Djava.awt.headless=true -jar ./PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file ML/descriptors_output.csv"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    os.remove('ML/molecule.smi')
+    os.remove('molecule.smi')
 
 
 # File download
@@ -111,7 +111,7 @@ if uploaded_file is None:
 if st.button("Predict", use_container_width=True) and uploaded_file is not None:
     # Read input file
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
-    load_data.to_csv('ML/molecule.smi', sep='\t', header=False, index=False)
+    load_data.to_csv('molecule.smi', sep='\t', header=False, index=False)
 
     # Display original input data
     st.header('**Input Data with Dataframe**')
