@@ -1,10 +1,10 @@
 import streamlit as st
-import subprocess
-import base64
-import os
-import pickle
 import pandas as pd
 from PIL import Image
+import subprocess
+import os
+import base64
+import pickle
 
 
 # Molecular descriptor calculator
@@ -70,7 +70,31 @@ st.markdown(
 # Add buttons to sidebar
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
-st.sidebar.button("Feedback", use_container_width=True)
+
+if st.sidebar.button("Feedback", use_container_width=True):
+    # open the feedback modal
+    with st.sidebar:
+        # Set the modal width and height
+        st.markdown(
+            """
+            <style>
+            .reportview-container .main .block-container {
+                max-width: 600px;
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+        # Feedback form in the modal
+        st.header("Feedback")
+        email = st.text_input("Email", type="email")
+        message = st.text_area("Message")
+        if st.button("Submit"):
+            # Handle the feedback submission
+            st.success("Feedback submitted successfully.")
+
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
 
