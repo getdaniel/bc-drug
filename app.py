@@ -6,6 +6,9 @@ import pandas as pd
 from source.descriptors import desc_calc
 from source.model import build_model
 from source.feedback import handle_user_feedback
+from source.logout import handle_logout
+from source.history import handle_history
+from source.settings import handle_settings
 
 
 # Set page title and icon
@@ -34,17 +37,30 @@ st.markdown(
 
 # Add buttons to sidebar
 st.sidebar.button("New Web", use_container_width=True)
-st.sidebar.button("Settings", use_container_width=True)
 
-modal = Modal("Feedback", key="feedback_button")
-# Feedback button in the sidebar
+setting_modal = Modal("Settings", key="settings_button")
+if st.sidebar.button("Settings", use_container_width=True):
+    setting_modal.open()
+
+handle_settings(setting_modal)
+
+feedback_modal = Modal("Feedback", key="feedback_button")
 if st.sidebar.button("Feedback", use_container_width=True):
-    modal.open()
+    feedback_modal.open()
 
-handle_user_feedback(modal)
+handle_user_feedback(feedback_modal)
 
-st.sidebar.button("History", use_container_width=True)
-st.sidebar.button("Log Out", use_container_width=True)
+history_modal = Modal("History", key="history_button")
+if st.sidebar.button("History", use_container_width=True):
+    history_modal.open()
+
+handle_history(history_modal)
+
+logout_modal = Modal("Logout", key="logout_button")
+if st.sidebar.button("Log Out", use_container_width=True):
+    logout_modal.open()
+
+handle_logout(logout_modal)
 
 # Input file upload section
 uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])

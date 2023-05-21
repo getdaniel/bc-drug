@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_modal import Modal
 
 
 def handle_user_feedback(modal):
