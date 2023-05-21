@@ -1,46 +1,10 @@
 import streamlit as st
-import pandas as pd
 from PIL import Image
-import subprocess
-import os
-import base64
-import pickle
 from streamlit_modal import Modal
+import pandas as pd
 
-# Molecular descriptor calculator
-def desc_calc():
-    # Performs the descriptor calculation
-    bashCommand = "java -Xms2G -Xmx2G -Djava.awt.headless=true -jar ./PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file ML/descriptors_output.csv"
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-    output, error = process.communicate()
-    os.remove('molecule.smi')
-
-
-# File download
-def filedownload(df):
-    csv = df.to_csv(index=False)
-    # strings <-> bytes conversions
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="prediction.csv">Download Prediction</a>'
-    return href
-
-
-# Model building
-def build_model(input_data):
-    if input_data.shape[0] == 0:
-        st.info("Input data has zero samples/ No descriptor Value. Please provide valid input data.")
-    else:
-        # Reads in saved regression model
-        load_model = pickle.load(open('ML/aromatase.pkl', 'rb'))
-
-        # Apply model to make predictions
-        prediction = load_model.predict(input_data)
-        st.header('**Prediction output**')
-        prediction_output = pd.Series(prediction, name='pIC50')
-        molecule_name = pd.Series(load_data[1], name='molecule_name')
-        df = pd.concat([molecule_name, prediction_output], axis=1)
-        st.write(df)
-        st.markdown(filedownload(df), unsafe_allow_html=True)
+from source.descriptors import desc_calc
+from source.model import build_model
 
 
 # Set page title and icon
@@ -71,19 +35,18 @@ st.markdown(
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
 
-
 modal = Modal("Feedback", key="feedback_button")
 # Feedback button in the sidebar
 if st.sidebar.button("Feedback", use_container_width=True):
     modal.open()
 
-    if modal.is_open():
-        with modal.container():
-            email = st.text_input("Email")
-            message = st.text_area("Message")
-            if st.button("Submit", use_container_width=True):
-                # Handle the feedback submission
-                st.success("Feedback submitted successfully.")
+if modal.is_open():
+    with modal.container():
+        email = st.text_input("Email")
+        message = st.text_area("Message")
+        if st.button("Submit", use_container_width=True):
+            # Handle the feedback submission
+            st.success("Feedback submitted successfully.")
 
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
@@ -125,4 +88,4 @@ if st.button("Predict", use_container_width=True) and uploaded_file is not None:
     st.write(desc_subset.shape)
 
     # Apply trained model to make prediction
-    build_model(desc_subset)
+    build_model(load_data, desc_subset)
