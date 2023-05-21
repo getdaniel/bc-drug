@@ -6,8 +6,7 @@ import os
 import base64
 import pickle
 from streamlit_modal import Modal
-import streamlit.components.v1 as components
-
+from source.feedback import user_feedback
 
 # Molecular descriptor calculator
 def desc_calc():
@@ -76,15 +75,7 @@ st.sidebar.button("Settings", use_container_width=True)
 modal = Modal("Feedback", key="feedback_button")
 # Feedback button in the sidebar
 if st.sidebar.button("Feedback", use_container_width=True):
-    modal.open()
-
-if modal.is_open():
-    with modal.container():
-        email = st.text_input("Email")
-        message = st.text_area("Message")
-        if st.button("Submit", use_container_width=True):
-            # Handle the feedback submission
-            st.success("Feedback submitted successfully.")
+    user_feedback()
 
 st.sidebar.button("History", use_container_width=True)
 st.sidebar.button("Log Out", use_container_width=True)
