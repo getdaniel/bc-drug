@@ -4,9 +4,6 @@ import streamlit as st
 def handle_user_feedback(modal):
     if modal.is_open():
         with modal.container():
-            # Force light mode temporarily
-            st.experimental_set_query_params(_forced_theme='light')
-            
             email = st.text_input("Email")
             message = st.text_area("Message")
             if st.button("Submit", use_container_width=True):
