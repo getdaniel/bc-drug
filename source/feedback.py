@@ -7,9 +7,13 @@ def handle_user_feedback(modal):
             """
             <style>
             /* Adjust the color and background-color properties as needed */
-            .stTextInput, .stTextArea, .stButton {
+            .modal-content .stTextInput, .modal-content .stTextArea {
                 color: #ffffff !important;
                 background-color: #000000 !important;
+            }
+            .modal-content .stButton button {
+                color: #ffffff !important;
+                background-color: #1e88e5 !important;
             }
             </style>
             """
