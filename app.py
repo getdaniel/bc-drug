@@ -71,9 +71,10 @@ st.markdown(
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
 
+
+modal = Modal("Feedback", key="feedback_button")
 # Feedback button in the sidebar
 if st.sidebar.button("Feedback", use_container_width=True):
-    modal = Modal("Feedback", key="feedback_button")
     modal.open()
 
     if modal.is_open():
