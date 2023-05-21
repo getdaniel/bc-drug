@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-from model import build_model
-from descriptors import desc_calc
+from source.model import build_model
+from source.descriptors import desc_calc
 
 
 def prediction_output(uploaded_file):
