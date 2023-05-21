@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_modal import Modal
+import streamlit.components.v1 as components
 
 modal = Modal("Feedback", key="feedback_button")
 

@@ -5,7 +5,6 @@ import subprocess
 import os
 import base64
 import pickle
-from streamlit_modal import Modal
 from source.feedback import user_feedback
 
 # Molecular descriptor calculator
@@ -72,7 +71,6 @@ st.markdown(
 st.sidebar.button("New Web", use_container_width=True)
 st.sidebar.button("Settings", use_container_width=True)
 
-modal = Modal("Feedback", key="feedback_button")
 # Feedback button in the sidebar
 if st.sidebar.button("Feedback", use_container_width=True):
     user_feedback()
