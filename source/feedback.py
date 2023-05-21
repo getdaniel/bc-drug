@@ -2,10 +2,7 @@ import streamlit as st
 from streamlit_modal import Modal
 
 
-def user_feedback():
-    modal = Modal("Feedback", key="feedback_button")
-    modal.open()
-
+def handle_user_feedback(modal):
     if modal.is_open():
         with modal.container():
             email = st.text_input("Email")
