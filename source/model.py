@@ -42,11 +42,8 @@ def build_model(load_data, input_data):
             # Replace with your own implementation to load the 3D structure
             mol = Chem.MolFromSmiles(row['smiles'])
 
-            # Generate the 3D structure using RDKit
-            pdb_block = Chem.MolToPDBBlock(mol)
-
             # Create an NGLview widget
-            view = nglview.show_pdbstring(pdb_block)
+            view = nglview.show_rdkit(mol)
             view.add_representation('cartoon')
             view.center()
 
