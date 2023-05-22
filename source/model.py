@@ -4,6 +4,7 @@ import streamlit as st
 import plotly.express as px
 from rdkit import Chem
 from rdkit.Chem import Draw
+import py3Dmol
 
 from source.file_download import filedownload
 
@@ -33,6 +34,26 @@ def build_model(load_data, input_data):
 
         # Display the dataframe
         st.write(df)
+
+        # Display the 3D structure for each chemical
+        for index, row in df.iterrows():
+            st.subheader(f"Chemical: {row['molecule_name']}")
+
+            # Replace with your own implementation to load the 3D structure
+            mol = Chem.MolFromSmiles(row['smiles'])
+
+            # Generate the 3D structure using RDKit
+            pdb_block = Chem.MolToPDBBlock(mol)
+
+            # Create a Py3Dmol view
+            view = py3Dmol.view(width=400, height=400)
+            view.addModel(pdb_block, 'pdb')
+            view.setStyle({'cartoon': {'color': 'spectrum'}})
+            view.zoomTo()
+            view.show()
+
+            # Display the Py3Dmol view using Streamlit
+            st.write(view)
 
         # Display the 3D structure for each chemical
         for index, row in df.iterrows():
