@@ -7,6 +7,7 @@ from source.logout import handle_logout
 from source.history import handle_history
 from source.settings import handle_settings
 from source.prediction import prediction_output
+from source.aromatase import aromatase_structure
 
 
 # Set page title and icon
@@ -17,6 +18,7 @@ st.set_page_config(page_title="Drug Discovery",
 st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>",
             unsafe_allow_html=True)
 
+aromatase_structure()
 # Add image
 image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
