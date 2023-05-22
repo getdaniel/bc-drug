@@ -10,7 +10,7 @@ def aromatase_structure():
     mol = Chem.MolFromSmiles(smiles)
 
     # Generate the 3D structure image using RDKit
-    image = Draw.MolToImage(mol, size=(200, 200))
+    image = Draw.MolToImage(mol, size=(400, 200))
 
     # Display the image using Streamlit
     st.image(image, use_column_width=True)
