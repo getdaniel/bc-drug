@@ -3,3 +3,4 @@ pip
 scikit-learn==1.2.2
 streamlit_modal
 plotly
+rdkit

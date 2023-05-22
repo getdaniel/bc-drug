@@ -2,6 +2,8 @@ import pickle
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+from rdkit import Chem
+from rdkit.Chem import Draw
 
 from source.file_download import filedownload
 
@@ -22,10 +24,27 @@ def build_model(load_data, input_data):
         # Apply model to make predictions
         prediction = load_model.predict(input_data)
         st.header('**Prediction Output**')
+
+        # Create a dataframe with molecule_name, pIC50
         molecule_name = pd.Series(load_data[1], name='molecule_name')
         prediction_output = pd.Series(prediction, name='pIC50')
         df = pd.concat([molecule_name, prediction_output], axis=1)
+
+        # Display the dataframe
         st.write(df)
+
+        # Display the 3D structure for each chemical
+        for index, row in df.iterrows():
+            st.subheader(f"Chemical: {row['molecule_name']}")
+
+            # Replace with your own implementation to load the 3D structure
+            mol = Chem.MolFromSmiles(row['smiles'])
+
+            # Generate the 3D structure image using RDKit
+            image = Draw.MolToImage(mol)
+
+            # Display the image using Streamlit
+            st.image(image)
 
         # Draw a bar chart with molecule_name as X-axis and prediction_output as Y-axis
         st.header('**Graphical Prediction Output**')
