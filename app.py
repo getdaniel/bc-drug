@@ -23,7 +23,7 @@ image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # aromatase structure
-st.markdown("##### The goal of this project is finding best chemical with higher Potency(Having higher pIC50 value) to break the below structure of Aromatase Enzyme.")
+st.markdown("<center>##### The goal of this project is finding the best chemical with higher potency (having a higher pIC50 value) to break the below structure of Aromatase Enzyme.</center>", unsafe_allow_html=True)
 aromatase_structure()
 
 # Side bar
