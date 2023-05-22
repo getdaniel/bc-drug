@@ -35,7 +35,7 @@ def build_model(load_data, input_data):
 
         # Display the 3D structure for each chemical
         for index, row in df.iterrows():
-            st.subheader(f"## Chemical: **{row['molecule_name']}**")  # Bold text using Markdown
+            st.subheader(f"<h4 style='font-size: 18px;'>Chemical: <b>{row['molecule_name']}</b></h4>", unsafe_allow_html=True)
 
             # Replace with your own implementation to load the 3D structure
             mol = Chem.MolFromSmiles(row['smiles'])
