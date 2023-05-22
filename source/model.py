@@ -25,10 +25,11 @@ def build_model(load_data, input_data):
         prediction = load_model.predict(input_data)
         st.header('**Prediction Output**')
 
-        # Create a dataframe with molecule_name, pIC50
+        # Create a dataframe with molecule_name, pIC50 and SMILES
         molecule_name = pd.Series(load_data[1], name='molecule_name')
         prediction_output = pd.Series(prediction, name='pIC50')
-        df = pd.concat([molecule_name, prediction_output], axis=1)
+        smiles = pd.Series(input_data[0], name='smiles')
+        df = pd.concat([molecule_name, prediction_output, smiles], axis=1)
 
         # Display the dataframe
         st.write(df)
