@@ -20,9 +20,10 @@ def build_model(load_data, input_data):
         df = pd.concat([molecule_name, prediction_output], axis=1)
         st.write(df)
 
-        # Draw a line chart with molecule_name as X-axis and prediction_output as Y-axis
+        # Draw a bar chart with molecule_name as X-axis and prediction_output as Y-axis
         st.header('**Graphical Prediction Output**')
         chart_data = df.set_index('molecule_name')
-        st.line_chart(chart_data)
+        st.bar_chart(chart_data)
 
+        # download the predicted csv file
         st.markdown(filedownload(df), unsafe_allow_html=True)
