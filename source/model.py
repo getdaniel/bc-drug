@@ -41,7 +41,7 @@ def build_model(load_data, input_data):
             mol = Chem.MolFromSmiles(row['smiles'])
 
             # Generate the 3D structure image using RDKit
-            image = Draw.MolToImage(mol, size=(300, 150))
+            image = Draw.MolToImage(mol, size=(500, 200))
 
             # Display the image using Streamlit
             st.image(image)
