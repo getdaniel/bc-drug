@@ -4,7 +4,6 @@ import streamlit as st
 import plotly.express as px
 from rdkit import Chem
 from rdkit.Chem import Draw
-import py3Dmol
 
 from source.file_download import filedownload
 
@@ -28,35 +27,12 @@ def build_model(load_data, input_data):
 
         # Create a dataframe with molecule_name, pIC50 and SMILES
         molecule_name = pd.Series(load_data[1], name='molecule_name')
-        prediction_output = pd.Series(prediction, name='pIC50')
         smiles = pd.Series(load_data[0], name='smiles')
-        df = pd.concat([molecule_name, prediction_output, smiles], axis=1)
+        prediction_output = pd.Series(prediction, name='pIC50')
+        df = pd.concat([molecule_name, smiles, prediction_output], axis=1)
 
         # Display the dataframe
         st.write(df)
-
-        # Display the 3D structure for each chemical
-        for index, row in df.iterrows():
-            st.subheader(f"Chemical: {row['molecule_name']}")
-
-            # Replace with your own implementation to load the 3D structure
-            mol = Chem.MolFromSmiles(row['smiles'])
-
-            # Generate the 3D structure using RDKit
-            mol = Chem.AddHs(mol)
-            AllChem.EmbedMolecule(mol)
-            AllChem.UFFOptimizeMolecule(mol)
-
-            # Create a py3Dmol view
-            view = py3Dmol.view(width=500, height=500)
-            view.addModel(Chem.MolToMolBlock(mol), "mol")
-            view.setStyle({'stick': {}})
-            view.setBackgroundColor('white')
-            view.zoomTo()
-            view.show()
-
-            # Display the py3Dmol view using Streamlit
-            st.write(view)
 
         # Display the 3D structure for each chemical
         for index, row in df.iterrows():
