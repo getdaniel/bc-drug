@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 import streamlit as st
+import plotly.express as px
 
 from source.file_download import filedownload
 
@@ -31,11 +32,16 @@ def build_model(load_data, input_data):
         chart_data = df.set_index('molecule_name')
 
         # Create a new column for bar color based on pIC50 values
-        chart_data['color'] = chart_data['pIC50'].apply(
-            lambda x: green_color if x >= 6.5 else (yellow_color if 4.5 <= x < 6.5 else red_color))
+        chart_data['color'] = chart_data['pIC50'].apply(lambda x: green_color if x >= 6.5 else (yellow_color if 4.5 <= x < 6.5 else red_color))
 
-        # Plot the bar chart with color-coded bars
-        st.bar_chart(chart_data['pIC50'], color=chart_data['color'])
+        # Create a bar chart using plotly express
+        fig = px.bar(chart_data, x=chart_data.index, y='pIC50', color='color')
+
+        # Customize the chart appearance
+        fig.update_layout(showlegend=False)  # Hide the color legend
+
+        # Render the chart in Streamlit
+        st.plotly_chart(fig)
 
         # download the predicted csv file
         st.markdown(filedownload(df), unsafe_allow_html=True)
