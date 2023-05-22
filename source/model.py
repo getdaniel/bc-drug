@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 from rdkit import Chem
 from rdkit.Chem import Draw
-import py3Dmol
+import nglview
 
 from source.file_download import filedownload
 
@@ -45,14 +45,12 @@ def build_model(load_data, input_data):
             # Generate the 3D structure using RDKit
             pdb_block = Chem.MolToPDBBlock(mol)
 
-            # Create a Py3Dmol view
-            view = py3Dmol.view(width=400, height=400)
-            view.addModel(pdb_block, 'pdb')
-            view.setStyle({'cartoon': {'color': 'spectrum'}})
-            view.zoomTo()
-            view.show()
+            # Create an NGLview widget
+            view = nglview.show_pdbstring(pdb_block)
+            view.add_representation('cartoon')
+            view.center()
 
-            # Display the Py3Dmol view using Streamlit
+            # Display the NGLview widget using Streamlit
             st.write(view)
 
         # Display the 3D structure for each chemical
