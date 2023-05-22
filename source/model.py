@@ -14,13 +14,14 @@ def build_model(load_data, input_data):
 
         # Apply model to make predictions
         prediction = load_model.predict(input_data)
-        st.header('**Prediction output**')
+        st.header('**Prediction Output**')
         molecule_name = pd.Series(load_data[1], name='molecule_name')
         prediction_output = pd.Series(prediction, name='pIC50')
         df = pd.concat([molecule_name, prediction_output], axis=1)
         st.write(df)
 
         # Draw a line chart with molecule_name as X-axis and prediction_output as Y-axis
+        st.header('**Graphical Prediction Output**')
         chart_data = df.set_index('molecule_name')
         st.line_chart(chart_data)
 
