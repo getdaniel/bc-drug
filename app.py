@@ -19,14 +19,6 @@ st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast 
             unsafe_allow_html=True)
 
 # aromatase structure
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        <h5>The goal of this project is finding the best chemical with higher potency (having a higher pIC50 value) to break base structure of Aromatase Enzyme.</h5>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 aromatase_structure()
 
 # Side bar
