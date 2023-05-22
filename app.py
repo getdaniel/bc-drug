@@ -44,9 +44,17 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+# Initialize uploaded file variable
+uploaded_file = None
+
+# New Web button callback
+def on_new_web_button_click():
+    global uploaded_file
+    uploaded_file = None
 
 # Add buttons to sidebar
-st.sidebar.button("New Web", use_container_width=True)
+if st.sidebar.button("New Web", use_container_width=True):
+    on_new_web_button_click()
 
 setting_modal = Modal("Settings", key="settings_button")
 if st.sidebar.button("Settings", use_container_width=True):
