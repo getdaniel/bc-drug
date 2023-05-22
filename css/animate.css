@@ -3156,3 +3156,9 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
 }
+
+/* Add responsive styles for the image */
+.feature img {
+  max-width: 100%;
+  height: auto;
+}
