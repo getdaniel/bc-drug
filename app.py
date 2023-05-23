@@ -46,6 +46,7 @@ def on_new_web_button_click():
 # Add buttons to sidebar
 if st.sidebar.button("New Web", use_container_width=True):
     on_new_web_button_click()
+    st.empty()
 
 setting_modal = Modal("Settings", key="settings_button")
 if st.sidebar.button("Settings", use_container_width=True):
