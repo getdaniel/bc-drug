@@ -9,6 +9,10 @@ from source.settings import handle_settings
 from source.prediction import prediction_output
 
 
+# Initialize uploaded file variable
+uploaded_file = None
+
+
 # Set page title and icon
 st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
@@ -32,18 +36,20 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-# Initialize uploaded file variable
-uploaded_file = None
 
 # New Web button callback
 def on_new_web_button_click():
     global uploaded_file
     if uploaded_file is not None:
-        uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
+        # Remove the uploaded file from the system
+        os.remove(uploaded_file.name)
+        uploaded_file = None
+        st.empty()
     uploaded_file = None
+    st.empty()
 
 # Add buttons to sidebar
-if st.sidebar.button("New Web", use_container_width=True):
+if st.sidebar.button("New", use_container_width=True):
     on_new_web_button_click()
 
 setting_modal = Modal("Settings", key="settings_button")
