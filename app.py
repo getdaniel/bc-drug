@@ -3,7 +3,7 @@ from PIL import Image
 from streamlit_modal import Modal
 
 from source.feedback import handle_user_feedback
-from logout_modal import logout_modal, handle_logout
+from logout_modal import handle_logout
 from source.history import handle_history
 from source.settings import handle_settings
 from source.prediction import prediction_output
