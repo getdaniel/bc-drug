@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#site-content {
+    min-height: 100%;
+    position: relative;
+}
+
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-form label,
+.login-form p {
+    text-align: left;
+    display: block;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.btn:hover {
+    background-color: darkgreen;
+    cursor: pointer;
+}
