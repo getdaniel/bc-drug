@@ -56,7 +56,6 @@ if st.sidebar.button("History", use_container_width=True):
 
 handle_history(history_modal)
 
-logout_modal = Modal("Logout", key="logout_button")
 if st.sidebar.button("Log Out", use_container_width=True):
     logout_modal.open()
 
