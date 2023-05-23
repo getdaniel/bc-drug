@@ -3162,3 +3162,11 @@ Copyright (c) 2014 Daniel Eden
   max-width: 100%;
   height: auto;
 }
+
+@media (max-width: 767px) {
+  .site-footer {
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
