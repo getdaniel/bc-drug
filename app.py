@@ -39,14 +39,12 @@ uploaded_file = None
 def on_new_web_button_click():
     global uploaded_file
     if uploaded_file is not None:
-        # Remove the uploaded file from the system
-        os.remove(uploaded_file.name)
+        uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
     uploaded_file = None
 
 # Add buttons to sidebar
 if st.sidebar.button("New Web", use_container_width=True):
     on_new_web_button_click()
-    st.empty()
 
 setting_modal = Modal("Settings", key="settings_button")
 if st.sidebar.button("Settings", use_container_width=True):
