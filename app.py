@@ -7,10 +7,7 @@ from source.logout import handle_logout
 from source.history import handle_history
 from source.settings import handle_settings
 from source.prediction import prediction_output
-
-
-# Initialize uploaded file variable
-uploaded_file = None
+from source.new import on_new_web_button_click
 
 
 # Set page title and icon
@@ -36,17 +33,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# New Web button callback
-def on_new_web_button_click():
-    global uploaded_file
-    if uploaded_file is not None:
-        # Remove the uploaded file from the system
-        os.remove(uploaded_file.name)
-        uploaded_file = None
-        st.empty()
-    uploaded_file = None
-    st.empty()
 
 # Add buttons to sidebar
 if st.sidebar.button("New", use_container_width=True):
