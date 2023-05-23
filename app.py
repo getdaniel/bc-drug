@@ -3,7 +3,7 @@ from PIL import Image
 from streamlit_modal import Modal
 
 from source.feedback import handle_user_feedback
-from source.logout import logout_modal, handle_logout
+from source.logout import handle_logout
 from source.history import handle_history
 from source.settings import handle_settings
 from source.prediction import prediction_output
@@ -56,6 +56,7 @@ if st.sidebar.button("History", use_container_width=True):
 
 handle_history(history_modal)
 
+logout_modal = Modal("Logout", key="logout_button")
 if st.sidebar.button("Log Out", use_container_width=True):
     logout_modal.open()
 
