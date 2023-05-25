@@ -41,10 +41,7 @@ def build_model(load_data, input_data):
             return color
 
         # Apply the color_map function to the pIC50 column and display the dataframe
-        st.dataframe(df.style.applymap(color_map, subset=['pIC50']), height=400)
-
-        # Display the dataframe
-        # st.write(df)
+        st.dataframe(df.style.applymap(color_map, subset=['pIC50']))
 
         # Display the 3D structure for each chemical
         for index, row in df.iterrows():
