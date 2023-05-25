@@ -33,7 +33,7 @@ image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # The render_pdb() function accepts any PDB ID and returns a py3Dmol object.
-showmol(render_pdb(id = '1A2C'))
+showmol(render_pdb(id = '3EQM'))
 
 # Side bar
 st.markdown(
