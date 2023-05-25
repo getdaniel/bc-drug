@@ -30,6 +30,19 @@ def build_model(load_data, input_data):
         prediction_output = pd.Series(prediction, name='pIC50')
         df = pd.concat([molecule_name, smiles, prediction_output], axis=1)
 
+        # Apply conditional formatting to the pIC50 column
+        def color_map(val):
+            if val >= 6.5:
+                color = 'background-color: green'
+            elif 4.0 <= val < 6.5:
+                color = 'background-color: yellow'
+            else:
+                color = 'background-color: red'
+            return color
+
+        # Apply the color_map function to the pIC50 column and display the dataframe
+        st.dataframe(df.style.applymap(color_map, subset=['pIC50']), height=400)
+
         # Display the dataframe
         st.write(df)
 
@@ -50,17 +63,15 @@ def build_model(load_data, input_data):
         st.header('**Graphical Prediction Output**')
         chart_data = df.set_index('molecule_name')
 
-        # Create a new column for bar color based on pIC50 values
-        chart_data['color'] = chart_data['pIC50'].apply(lambda x: green_color if x >= 6.5 else (yellow_color if 4.5 <= x < 6.5 else red_color))
-
-        # Create a bar chart using plotly express
-        fig = px.bar(chart_data, x=chart_data.index, y='pIC50', color='color')
+        # Create a bar chart using plotly express with default colors
+        fig = px.bar(chart_data, x=chart_data.index, y='pIC50')
 
         # Customize the chart appearance
         fig.update_layout(showlegend=False)  # Hide the color legend
 
         # Render the chart in Streamlit
         st.plotly_chart(fig)
+
 
         # download the predicted csv file
         st.markdown(filedownload(df), unsafe_allow_html=True)

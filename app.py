@@ -14,7 +14,7 @@ from source.new import on_new_web_button_click
 st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
 
-# Hide footer made with streamlit
+# Hide custom made with streamlit
 #MainMenu {visibility: hidden;}
 hide_made_with = """
                 <style>
