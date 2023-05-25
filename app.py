@@ -14,6 +14,15 @@ from source.new import on_new_web_button_click
 st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
 
+# Hide footer made with streamlit
+hide_made_with = """
+                <style>
+                    #MainMenu {visibility: hidden;}
+                    footer {visibility: hidden;}
+                </style>
+                 """
+st.markdown(hide_made_with, unsafe_allow_html=True)
+
 # Set title to be centered
 st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>",
             unsafe_allow_html=True)

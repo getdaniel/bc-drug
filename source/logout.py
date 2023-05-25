@@ -10,7 +10,7 @@ def handle_logout(modal):
                 unsafe_allow_html=True
             )
             
-            button_container = st.beta_container()
+            button_container = st.container()
             
             with button_container:
                 st.write(
