@@ -6,7 +6,7 @@ def handle_logout(modal):
             st.warning("Are you sure you want to log out?")
             
             st.write(
-                '<style>.streamlit-modal-content { max-width: 600px !important; width: 80% !important; }</style>',
+                '<style>.streamlit-modal-content { max-width: 60px !important; width: 10% !important; }</style>',
                 unsafe_allow_html=True
             )
             
