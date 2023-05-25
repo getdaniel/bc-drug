@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 from PIL import Image
 from streamlit_modal import Modal
 from stmol import *
@@ -16,7 +17,7 @@ st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
 
 # Hide custom made with streamlit
-#MainMenu {visibility: hidden;}
+# MainMenu {visibility: hidden;}
 hide_made_with = """
                 <style>
                     footer {visibility: hidden;}
@@ -33,7 +34,18 @@ image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
 
 # The render_pdb() function accepts any PDB ID and returns a py3Dmol object.
-showmol(render_pdb(id = '3EQM'))
+showmol(render_pdb(id='3EQM'))
+
+st.title("3D Mol Visualization")
+
+id = st.text_input("Enter your protein ID")
+
+components.html("""
+                <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
+                <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>  
+                <div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-pdb='2POR' data-backgroundcolor='0xffffff' data-style='stick' data-ui='true'></div>
+                """, width=500, height=500
+            )
 
 # Side bar
 st.markdown(
