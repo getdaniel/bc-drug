@@ -43,7 +43,7 @@ id = st.text_input("Enter your protein ID")
 components.html("""
                 <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
                 <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>  
-                <div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-style1='cartoon:color=spectrum' data-spin='axis:z;speed:10' data-pdb={} data-backgroundcolor='0xffffff' data-style='stick' data-ui='true'></div>
+                <div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-pdb={} data-backgroundcolor='0xffffff' data-ui='true' data-style1='cartoon:color=spectrum' data-spin='axis:y;speed:1'></div>
                 """.format(id), width=700, height=500
             )
 
