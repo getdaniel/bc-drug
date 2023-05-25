@@ -2,7 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
 from streamlit_modal import Modal
-from stmol import *
 
 from source.feedback import handle_user_feedback
 from source.logout import handle_logout
@@ -32,9 +31,6 @@ st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast 
 # Add image
 image = Image.open("assets/images/logo.png")
 st.image(image, use_column_width=True)
-
-# The render_pdb() function accepts any PDB ID and returns a py3Dmol object.
-showmol(render_pdb(id='3EQM'))
 
 st.title("3D Mol Visualization")
 
