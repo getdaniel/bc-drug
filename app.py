@@ -15,9 +15,9 @@ st.set_page_config(page_title="Drug Discovery",
                    page_icon="assets/images/bio_logo.png")
 
 # Hide footer made with streamlit
+#MainMenu {visibility: hidden;}
 hide_made_with = """
                 <style>
-                    #MainMenu {visibility: hidden;}
                     footer {visibility: hidden;}
                 </style>
                  """
