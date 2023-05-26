@@ -11,7 +11,7 @@ def show_3d_visualization():
     id = st.text_input(
                     "Enter your protein ID",
                     value="3EQM",
-                    help="Example: 3EQM or Vist [RSCB Website](https://www.rcsb.org)"
+                    help="Example: 3EQM or Vist [RSCB Website](https://www.rcsb.org) for more"
                 )
     
     components.html("""
