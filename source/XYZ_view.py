@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 
 def show_3d_visualization():
     # Set title to be centered
-    st.empty()
     st.markdown(
                 "<h2 style='text-align: center;'>3D Molecular View</h2>",
                 unsafe_allow_html=True
