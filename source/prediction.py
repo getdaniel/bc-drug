@@ -17,7 +17,10 @@ def prediction_output(uploaded_file):
     st.write(load_data)
 
     # Display 2D structure images
-    st.header('**2D Structure Images**')
+    st.markdown(
+                "<h4 style='text-align: center;'>2D Strucure of the Molecule</h4>",
+                unsafe_allow_html=True
+                )
     for index, row in load_data.iterrows():
         st.markdown(f"#### Chemical: {row[1]}")
 
