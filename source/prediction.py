@@ -13,7 +13,10 @@ def prediction_output(uploaded_file):
     load_data.to_csv('molecule.smi', sep='\t', header=False, index=False)
 
     # Display original input data
-    st.header('**Input Data with Data Frame**')
+    st.markdown(
+                "<h4 style='text-align: center;'>Input Data with Data Frame</h4>",
+                unsafe_allow_html=True
+                )
     st.write(load_data)
 
     # Display 2D structure images
@@ -22,7 +25,7 @@ def prediction_output(uploaded_file):
                 unsafe_allow_html=True
                 )
     for index, row in load_data.iterrows():
-        st.markdown(f"#### Chemical: {row[1]}")
+        st.markdown(f"##### Chemical: {row[1]}")
 
         mol = Chem.MolFromSmiles(row[0])
         if mol is not None:
@@ -36,13 +39,19 @@ def prediction_output(uploaded_file):
         desc_calc()
 
     # Display calculated descriptors
-    st.header('**Calculated Molecular Descriptors**')
+    st.markdown(
+                "<h4 style='text-align: center;'>Calculated Molecular Descriptors</h4>",
+                unsafe_allow_html=True
+                )
     desc = pd.read_csv('ML/descriptors_output.csv')
     st.write(desc)
     st.write(desc.shape)
 
     # Read descriptor list used in previously built model
-    st.header('**Subset of Descriptors from the Models**')
+    st.markdown(
+                "<h4 style='text-align: center;'>Subset of Descriptors from the Models</h4>",
+                unsafe_allow_html=True
+                )
     Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
     st.write(desc_subset)
