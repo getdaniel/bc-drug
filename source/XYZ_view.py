@@ -8,7 +8,11 @@ def show_3d_visualization():
                 unsafe_allow_html=True
                 )
     
-    id = st.text_input("Enter your protein ID", value="3EQM", help="Example: 3EQM")
+    id = st.text_input(
+                    "Enter your protein ID",
+                    value="3EQM",
+                    help="Example: 3EQM [RSCB Website](https://www.rcsb.org)"
+                )
     
     components.html("""
         <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
