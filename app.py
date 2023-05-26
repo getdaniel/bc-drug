@@ -9,10 +9,10 @@ from source.settings import handle_settings
 from source.new import on_new_web_button_click
 from source.XYZ_view import show_3d_visualization
 
-# Create a flag variable
-is_3d_view_clicked = False
-
 def main():
+    # Declare the variable as global
+    global is_3d_view_clicked
+
     # Set page title and icon
     st.set_page_config(page_title="Drug Discovery", page_icon="assets/images/bio_logo.png")
 
@@ -35,6 +35,9 @@ def main():
         """,
         unsafe_allow_html=True,
     )
+
+    # Initialize the flag variable
+    is_3d_view_clicked = False
 
     # Add buttons to sidebar
     if st.sidebar.button("New", use_container_width=True):
