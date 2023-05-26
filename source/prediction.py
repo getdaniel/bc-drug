@@ -13,7 +13,7 @@ def prediction_output(uploaded_file):
     load_data.to_csv('molecule.smi', sep='\t', header=False, index=False)
 
     # Display original input data
-    st.header('**Input Data with Dataframe**')
+    st.header('**Input Data with Data Frame**')
     st.write(load_data)
 
     # Display 2D structure images
