@@ -1,13 +1,11 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from PIL import Image
 from streamlit_modal import Modal
 
 from source.feedback import handle_user_feedback
 from source.logout import handle_logout
 from source.history import handle_history
 from source.settings import handle_settings
-from source.prediction import prediction_output
 from source.new import on_new_web_button_click
 from source.XYZ_view import show_3d_visualization
 
@@ -26,10 +24,6 @@ def main():
 
     # Set title to be centered
     st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>", unsafe_allow_html=True)
-
-    # Add image
-    image = Image.open("assets/images/logo.png")
-    st.image(image, use_column_width=True)
 
     # Side bar
     st.markdown(
@@ -74,15 +68,3 @@ def main():
         logout_modal.open()
 
     handle_logout(logout_modal)
-
-    # Input file upload section
-    uploaded_file = st.file_uploader("Upload your input file (.txt)", type=['txt'])
-    st.markdown("[Example input file](https://raw.githubusercontent.com/getdaniel/bc-drug/main/ML/aromatase_exp.txt)")
-
-    # Display a message if no file is uploaded
-    if uploaded_file is None:
-        st.info("No file uploaded or file is empty. Please upload a file.")
-
-    # Prediction section
-    if st.button("Predict", use_container_width=True) and uploaded_file is not None:
-        prediction_output(uploaded_file)
