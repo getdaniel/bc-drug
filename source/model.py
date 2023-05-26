@@ -15,7 +15,10 @@ def build_model(load_data, input_data):
 
         # Apply model to make predictions
         prediction = load_model.predict(input_data)
-        st.header('**Prediction Output**')
+        st.markdown(
+                "<h4 style='text-align: center;'>Prediction Output</h4>",
+                unsafe_allow_html=True
+                )
 
         # Create a dataframe with molecule_name, pIC50 and SMILES
         molecule_name = pd.Series(load_data[1], name='molecule_name')
@@ -37,7 +40,10 @@ def build_model(load_data, input_data):
         st.dataframe(df.style.applymap(color_map, subset=['pIC50']))
 
         # Draw a bar chart with molecule_name as X-axis and prediction_output as Y-axis
-        st.header('**Graphical Prediction Output**')
+        st.markdown(
+                "<h4 style='text-align: center;'>Graphical Prediction Output</h4>",
+                unsafe_allow_html=True
+                )
         chart_data = df.set_index('molecule_name')
 
         # Create a bar chart using plotly express with default colors
