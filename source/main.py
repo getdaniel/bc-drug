@@ -33,8 +33,6 @@ def main():
         """,
         unsafe_allow_html=True,
     )
-    # Create a placeholder for the page content
-    page_placeholder = st.empty()
 
     # Add buttons to sidebar
     if st.sidebar.button("New", use_container_width=True):
@@ -42,8 +40,6 @@ def main():
 
     # Create the sidebar 3D View button
     if st.sidebar.button("3D View", use_container_width=True):
-        # Remove previous page content
-        page_placeholder.empty()
         show_3d_visualization()
 
     setting_modal = Modal("Settings", key="settings_button")
