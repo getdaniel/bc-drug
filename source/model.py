@@ -1,9 +1,7 @@
-import pickle
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import pickle
 import plotly.express as px
-from rdkit import Chem
-from rdkit.Chem import Draw
 
 from source.file_download import filedownload
 

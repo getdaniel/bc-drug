@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+from rdkit import Chem
+from rdkit.Chem import Draw
 
 from source.model import build_model
 from source.descriptors import desc_calc
