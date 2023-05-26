@@ -47,15 +47,15 @@ def main():
     if st.sidebar.button("New", use_container_width=True):
         on_new_web_button_click()
 
+    # Create the sidebar 3D View button
+    if st.sidebar.button("3D View", use_container_width=True):
+        show_3d_visualization()
+
     setting_modal = Modal("Settings", key="settings_button")
     if st.sidebar.button("Settings", use_container_width=True):
         setting_modal.open()
 
     handle_settings(setting_modal)
-
-    # Create the sidebar 3D View button
-    if st.sidebar.button("3D View", use_container_width=True):
-        show_3d_visualization()
 
     feedback_modal = Modal("Feedback", key="feedback_button")
     if st.sidebar.button("Feedback", use_container_width=True):
