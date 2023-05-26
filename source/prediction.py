@@ -14,11 +14,11 @@ def prediction_output(uploaded_file):
     st.header('**Input Data with Dataframe**')
     st.write(load_data)
 
-    # Display 3D structure images
-    st.header('**3D Structure Images**')
+    # Display 2D structure images
+    st.header('**2D Structure Images**')
     for index, row in load_data.iterrows():
         st.markdown(f"#### Chemical: {row[1]}")
-        
+
         mol = Chem.MolFromSmiles(row[0])
         if mol is not None:
             image = Draw.MolToImage(mol, size=(700, 250))
