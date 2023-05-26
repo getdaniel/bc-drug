@@ -17,5 +17,5 @@ def show_3d_visualization():
     components.html("""
         <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
         <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>  
-        <div style="height: 400px; width: 800px; position: relative;" class='viewer_3Dmoljs' data-pdb={} data-backgroundcolor='0xffffff' data-style='stick' data-style1='cartoon:color=spectrum' data-spin='axis:y;speed:1' data-ui='true'></div>
-    """.format(id), width=800, height=600)
+        <div style="height: 700px; width: 700px; position: relative;" class='viewer_3Dmoljs' data-pdb={} data-backgroundcolor='0xffffff' data-style='stick' data-style1='cartoon:color=spectrum' data-spin='axis:y;speed:1' data-ui='true'></div>
+    """.format(id), width=700, height=700)
