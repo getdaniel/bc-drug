@@ -7,11 +7,6 @@ from rdkit.Chem import Draw
 
 from source.file_download import filedownload
 
-# Define color codes
-green_color = '#00FF00'
-yellow_color = '#FFFF00'
-red_color = '#FF0000'
-
 # Model building
 def build_model(load_data, input_data):
     if input_data.shape[0] == 0:
@@ -42,19 +37,6 @@ def build_model(load_data, input_data):
 
         # Apply the color_map function to the pIC50 column and display the dataframe
         st.dataframe(df.style.applymap(color_map, subset=['pIC50']))
-
-        # Display the 3D structure for each chemical
-        for index, row in df.iterrows():
-            st.markdown(f"#### Chemical: {row['molecule_name']}")
-
-            # Replace with your own implementation to load the 3D structure
-            mol = Chem.MolFromSmiles(row['smiles'])
-
-            # Generate the 3D structure image using RDKit
-            image = Draw.MolToImage(mol, size=(700, 250))
-
-            # Display the image using Streamlit
-            st.image(image)
 
         # Draw a bar chart with molecule_name as X-axis and prediction_output as Y-axis
         st.header('**Graphical Prediction Output**')
