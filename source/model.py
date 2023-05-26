@@ -16,7 +16,7 @@ def build_model(load_data, input_data):
         # Apply model to make predictions
         prediction = load_model.predict(input_data)
         st.markdown(
-                "<h4 style='text-align: center;'>Prediction Output</h4>",
+                "<h4 style='text-align: center;'>Tabular Prediction Output</h4>",
                 unsafe_allow_html=True
                 )
 
