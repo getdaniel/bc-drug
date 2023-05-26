@@ -2,7 +2,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def show_3d_visualization():
-    st.title("3D Mol Visualization")
+    # Set title to be centered
+    st.markdown(
+                "<h2 style='text-align: center;'>3D Molecular View</h2>",
+                unsafe_allow_html=True
+                )
     
     id = st.text_input("Enter your protein ID", value="3EQM", help="Example: 3EQM")
     

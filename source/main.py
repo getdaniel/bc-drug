@@ -22,9 +22,6 @@ def main():
                      """
     st.markdown(hide_made_with, unsafe_allow_html=True)
 
-    # Set title to be centered
-    st.markdown("<h2 style='text-align: center;'>Drug Discovery Using AI for Breast Cancer</h2>", unsafe_allow_html=True)
-
     # Side bar
     st.markdown(
         """
