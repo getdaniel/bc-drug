@@ -6,14 +6,14 @@ def handle_logout(modal):
             st.warning("Are you sure you want to log out?")
             
             # Add buttons in one row
-            col1, col2 = st.columns(2)
+            col1, col10, col11, col12, col2 = st.columns(5)
             
             # Cancel button in left corner
             if col1.button("No"):
                 modal.close()
             
             # OK button in right corner
-            if col2.button("OK", type="primary"):
+            if col2:
                 # Redirect to another link
                 logout_url = "https://getdaniel.github.io/bc-drug/"  # Replace with the desired link
                 
