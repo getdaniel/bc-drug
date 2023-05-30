@@ -11,10 +11,8 @@ def handle_logout(modal):
             if col1.button("No"):
                 modal.close()
             
-            # OK button in right corner
-            if col3.button("OK"):
+            if col3.button("OK", key="logout_ok_button"):
                 # Redirect to another link
-                # Replace 'https://example.com' with the desired link
-                st.experimental_set_query_params(logout=True)  # Set a query parameter to indicate logout
-                # Replace 'https://example.com/logout' with the logout link
-                st.experimental_rerun()  # Rerun the app to trigger the redirect
+                logout_url = "https://getdaniel.github.io/bc-drug/"  # Replace with the desired link
+                redirect_html = f'<a href="{logout_url}""> </a>'
+                st.markdown(redirect_html, unsafe_allow_html=True)
