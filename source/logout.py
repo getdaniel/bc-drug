@@ -3,7 +3,7 @@ import streamlit as st
 def handle_logout(modal):
     if modal.is_open():
         with modal.container():
-            st.warning("Are you sure you want to log out?")
+            st.warning("Are you sure to logout?")
             # Add buttons in one row
             col1, col2 = st.columns(2)
             
