@@ -6,7 +6,7 @@ def handle_logout(modal):
             st.warning("Are you sure you want to log out?")
             
             # Add buttons in one row
-            col1, col10, col11, col12, col13, col2 = st.columns(6)
+            col1, col10, col11, col12, col2 = st.columns(5)
             
             # Cancel button in left corner
             if col1.button("No"):
