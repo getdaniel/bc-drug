@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 def handle_logout(modal):
     if modal.is_open():
