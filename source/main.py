@@ -69,7 +69,7 @@ def main():
 
     handle_history(history_modal)
 
-    logout_modal = Modal("", key="logout_button", max_width=10)
+    logout_modal = Modal("", key="logout_button", max_width=100)
     if st.sidebar.button("Log Out", use_container_width=True):
         logout_modal.open()
 
