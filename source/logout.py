@@ -15,5 +15,9 @@ def handle_logout(modal):
             if col2.button("OK", type="primary"):
                 # Redirect to another link
                 logout_url = "https://getdaniel.github.io/bc-drug/"  # Replace with the desired link
-                redirect_js = f"window.location.href = '{logout_url}';"
-                st.write(f'<script>{redirect_js}</script>', unsafe_allow_html=True)
+                
+                # Generate the HTML for the redirect
+                redirect_html = f'<meta http-equiv="refresh" content="0; URL={logout_url}">'
+                
+                # Use components.html to display the HTML
+                components.html(redirect_html)
