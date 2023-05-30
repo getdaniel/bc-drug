@@ -27,4 +27,4 @@ def help_page(modal):
                             </div>
                         </div>
                     </div>
-                    """, width=500, height=500)
+                    """)
