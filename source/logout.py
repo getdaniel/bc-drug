@@ -5,10 +5,10 @@ def handle_logout(modal):
         with modal.container():
             st.warning("Are you sure you want to log out?")
             # Add buttons in one row
-            col1, col20, col21, col22, col23, col24, col25, col26, col27, col3 = st.columns(10)
+            col1, col20, col21, col22, col23, col24, col25, col26, col27, col28, col3 = st.columns(11)
             
             # Cancel button in left corner
-            if col1.button("Cancel"):
+            if col1.button("Cancel", use_container_width=True):
                 modal.close()
             
             # OK button in right corner
