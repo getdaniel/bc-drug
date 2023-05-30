@@ -8,7 +8,6 @@ from source.settings import handle_settings
 from source.new import on_new_web_button_click
 from source.XYZ_view import show_3d_visualization
 from source.home import home
-from source.help import help_page
 
 def main():
     # Declare the variable as global
