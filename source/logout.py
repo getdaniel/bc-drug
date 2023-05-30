@@ -14,5 +14,5 @@ def handle_logout(modal):
             if col3.button("OK", key="logout_ok_button"):
                 # Redirect to another link
                 logout_url = "https://getdaniel.github.io/bc-drug/"  # Replace with the desired link
-                redirect_html = f'<a href="{logout_url}""> </a>'
-                st.markdown(redirect_html, unsafe_allow_html=True)
+                redirect_js = f"window.location.href = '{logout_url}';"
+                st.write(f'<script>{redirect_js}</script>', unsafe_allow_html=True)
