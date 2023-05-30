@@ -14,7 +14,7 @@ def handle_logout(modal):
                 logout_url = "https://getdaniel.github.io/bc-drug/"  # Replace with the desired link
                 
                 # Generate HTML for opening link in new tab
-                new_tab_html = f'<a href="{logout_url}" target="_self" rel="noopener noreferrer"><button>OK</button></a>'
-                
+                new_tab_html = f'<a href="{logout_url}" target="_self" rel="noopener noreferrer"><button style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">OK</button></a>'
+
                 # Display the HTML
                 st.write(new_tab_html, unsafe_allow_html=True)
