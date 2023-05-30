@@ -1,8 +1,9 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 def help_page():
-    st.markdown(
+    components.html(
         """
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -34,4 +35,4 @@ def help_page():
                     window.location.href = 'https://example.com'; // Replace with your desired link
                 });
             </script>
-        """, unsafe_allow_html=True)
+        """)
