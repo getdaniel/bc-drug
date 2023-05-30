@@ -8,10 +8,10 @@ def handle_logout(modal):
             col1, col2 = st.columns(2)
             
             # Cancel button in left corner
-            if col1.button("No", type="primary"):
+            if col1.button("No", type="secondary"):
                 modal.close()
             
-            if col2.button("OK"):
+            if col2.button("OK", type="primary"):
                 # Redirect to another link
                 logout_url = "https://getdaniel.github.io/bc-drug/"  # Replace with the desired link
                 redirect_js = f"window.location.href = '{logout_url}';"
