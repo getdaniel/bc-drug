@@ -75,12 +75,6 @@ def main():
         logout_modal.open()
 
     handle_logout(logout_modal)
-    
-    help_modal = Modal("Help", key="help_page")
-    if st.sidebar.button("Help", use_container_width=True):
-        help_modal.open()
-
-    help_page(help_modal)
 
     # Call the home function only if 3D View button is not clicked
     if not is_3d_view_clicked:
