@@ -4,27 +4,17 @@ def handle_logout(modal):
     if modal.is_open():
         with modal.container():
             st.warning("Are you sure you want to log out?")
+            # Add buttons in one row
+            col1, col2, cols = st.columns(3)
             
-            st.write(
-                '<style>.streamlit-modal-content { max-width: 60px !important; width: 10% !important; }</style>',
-                unsafe_allow_html=True
-            )
+            # Cancel button in left corner
+            if col1.button("Cancel"):
+                modal.close()
             
-            button_container = st.container()
-            
-            with button_container:
-                st.write(
-                    '<style>div.stButton > button:first-child { margin-right: 10px; }</style>',
-                    unsafe_allow_html=True
-                )
-                
-                cancel_clicked = st.button("Cancel")
-                ok_clicked = st.button("OK")
-
-                if cancel_clicked:
-                    # Handle cancel logic here
-                    modal.close()
-
-                if ok_clicked:
-                    # Handle OK logic here
-                    modal.close()
+            # OK button in right corner
+            if col3.button("OK"):
+                # Redirect to another link
+                # Replace 'https://example.com' with the desired link
+                st.experimental_set_query_params(logout=True)  # Set a query parameter to indicate logout
+                # Replace 'https://example.com/logout' with the logout link
+                st.experimental_rerun()  # Rerun the app to trigger the redirect
