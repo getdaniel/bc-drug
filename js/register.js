@@ -6,6 +6,8 @@ const auth = firebase.auth();
 
 // Get the form element and listen for the submit event
 const registerForm = document.querySelector('.register-form');
+const messageDiv = document.getElementById('message');
+
 registerForm.addEventListener('submit', event => {
     event.preventDefault(); // Prevent the form from submitting
 
@@ -18,7 +20,7 @@ registerForm.addEventListener('submit', event => {
 
     // Check if the password and confirm password match
     if (password !== confirmPassword) {
-        alert('Password and confirm password do not match');
+        messageDiv.textContent = 'Password and confirm password do not match';
         return; // Exit the function
     }
 
@@ -34,15 +36,14 @@ registerForm.addEventListener('submit', event => {
                 email
             })
                 .then(() => {
-                    alert('User registered successfully');
                     registerForm.reset(); // Clear the form
                     window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
                 })
                 .catch(error => {
-                    alert('Error registering user: ' + error.message);
+                    messageDiv.textContent = 'Error registering user: ' + error.message;
                 });
         })
         .catch(error => {
-            alert('Error creating user: ' + error.message);
+            messageDiv.textContent = 'Error creating user: ' + error.message;
         });
 });
