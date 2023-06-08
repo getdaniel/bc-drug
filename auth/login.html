@@ -9,6 +9,7 @@
 	<title>Login - Drug Discovery</title>
 	<!-- Loading third party fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet" type="text/css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
 	<link href="../fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!-- Loading main css file -->
 	<link rel="stylesheet" href="../css/animate.css">
@@ -30,8 +31,10 @@
 					<label for="email">Email:</label>
 					<input type="email" id="email" name="email" placeholder="Enter your email" required>
 					<label for="password">Password:</label>
-					<input type="password" id="password" name="password" placeholder="Enter your password" required>
-					
+					<div class="password-container">
+						<input type="password" id="password" name="password" placeholder="Enter your password" required>
+						<span class="password-toggle" onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></span>
+					</div>
 					<div id="message"></div>
 
 					<p>Don't have an account yet? <a href="register.html">Register here</a>.</p>
@@ -72,6 +75,7 @@
 	</div> <!-- #site-content -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+	<script src="../js/eye.js"></script>
 	<script src="../js/firebase-config.js"></script>
 	<script src="../js/login.js"></script>
 	<script src="../js/jquery-1.11.1.min.js"></script>
