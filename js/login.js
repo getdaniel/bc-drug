@@ -20,9 +20,9 @@ loginForm.addEventListener('submit', (event) => {
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
-        messageDiv.textContent = 'Error: Wrong password';
+        messageDiv.textContent = 'Wrong password';
       } else if (error.code === 'auth/user-not-found') {
-        messageDiv.textContent = 'Error: Email not found';
+        messageDiv.textContent = 'Email not found';
       }
     });
 });
