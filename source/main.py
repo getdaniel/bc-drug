@@ -3,8 +3,8 @@ from streamlit_modal import Modal
 
 from source.feedback import handle_user_feedback
 from source.logout import handle_logout
-from source.history import handle_history
-from source.settings import handle_settings
+# from source.history import handle_history
+# from source.settings import handle_settings
 from source.new import on_new_web_button_click
 from source.XYZ_view import show_3d_visualization
 from source.home import home
@@ -51,11 +51,11 @@ def main():
         is_3d_view_clicked = True
         show_3d_visualization()
 
-    setting_modal = Modal("Settings", key="settings_button")
-    if st.sidebar.button("Settings", use_container_width=True):
-        setting_modal.open()
+    # setting_modal = Modal("Settings", key="settings_button")
+    # if st.sidebar.button("Settings", use_container_width=True):
+    #     setting_modal.open()
 
-    handle_settings(setting_modal)
+    # handle_settings(setting_modal)
 
     feedback_modal = Modal("Feedback", key="feedback_button")
     if st.sidebar.button("Feedback", use_container_width=True):
@@ -63,11 +63,11 @@ def main():
 
     handle_user_feedback(feedback_modal)
 
-    history_modal = Modal("History", key="history_button")
-    if st.sidebar.button("History", use_container_width=True):
-        history_modal.open()
+    # history_modal = Modal("History", key="history_button")
+    # if st.sidebar.button("History", use_container_width=True):
+    #     history_modal.open()
 
-    handle_history(history_modal)
+    # handle_history(history_modal)
 
     logout_modal = Modal("", key="logout_button", max_width=325)
     if st.sidebar.button("Log Out", use_container_width=True):
