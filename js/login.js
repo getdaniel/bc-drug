@@ -23,6 +23,8 @@ loginForm.addEventListener('submit', (event) => {
         messageDiv.textContent = 'Wrong password';
       } else if (error.code === 'auth/user-not-found') {
         messageDiv.textContent = 'Email not found';
+      } else if (error.code === 'auth/invalid-email') {
+        throw new Error('Invalid email');
       }
     });
 });
