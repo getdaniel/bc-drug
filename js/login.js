@@ -2,6 +2,7 @@
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const loginForm = document.querySelector('.login-form');
+const messageDiv = document.getElementById('message');
 
 // Add an event listener to the login form submit button
 loginForm.addEventListener('submit', (event) => {
@@ -13,11 +14,11 @@ loginForm.addEventListener('submit', (event) => {
   // Sign in the user with email and password
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-      alert('Login successful!');
+      messageDiv.textContent = 'Login successful!';
       loginForm.reset(); // Clear the form
       window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
     })
     .catch((error) => {
-      alert('Error signing in: ' + error.message);
+      messageDiv.textContent = 'Error signing in: ' + error.message;
     });
 });
