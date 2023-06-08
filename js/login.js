@@ -19,6 +19,10 @@ loginForm.addEventListener('submit', (event) => {
       window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
     })
     .catch((error) => {
-      messageDiv.textContent = 'Error signing in: ' + error.message;
+      if (error.code === 'auth/wrong-password') {
+        messageDiv.textContent = 'Error: Wrong password';
+      } else if (error.code === 'auth/user-not-found') {
+        messageDiv.textContent = 'Error: Email not found';
+      }
     });
 });
