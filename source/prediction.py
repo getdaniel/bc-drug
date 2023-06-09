@@ -28,7 +28,7 @@ def prediction_output(uploaded_file):
         st.markdown(f"##### Chemical: {row[1]}")
 
         mol = Chem.MolFromSmiles(row[0])
-        if mol is not None:
+        if mol is not None and row[1] is not None:
             image = Draw.MolToImage(mol, size=(700, 250))
             st.image(image)
         else:
