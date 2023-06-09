@@ -12,6 +12,16 @@ def prediction_output(uploaded_file):
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
     load_data.to_csv('molecule.smi', sep='\t', header=False, index=False)
 
+    # Check if the input file is empty
+    if load_data.empty:
+        st.error("The input file is empty.")
+        return
+
+    # Check if the input file contains valid SMILES and SMILES IDs
+    if len(load_data.columns) < 2 or not all(load_data.iloc[:, 0].apply(Chem.MolFromSmiles)):
+        st.error("The input file does not contain valid SMILES and SMILES IDs.")
+        return
+
     # Display original input data
     st.markdown(
                 "<h4 style='text-align: center;'>Input Data with Data Frame</h4>",
@@ -28,7 +38,7 @@ def prediction_output(uploaded_file):
         st.markdown(f"##### Chemical: {row[1]}")
 
         mol = Chem.MolFromSmiles(row[0])
-        if mol is not None and row[1] is not None:
+        if mol is not None:
             image = Draw.MolToImage(mol, size=(700, 250))
             st.image(image)
         else:
