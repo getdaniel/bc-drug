@@ -1,5 +1,3 @@
-import { showMessage } from './show_message';
-
 // Get references to the email and password input fields and the login form
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
@@ -29,3 +27,10 @@ loginForm.addEventListener('submit', (event) => {
       }
     });
 });
+
+function showMessage(message, color) {
+  messageDiv.textContent = message;
+  messageDiv.style.color = color;
+  messageDiv.style.fontWeight = 'bold';
+  messageDiv.style.marginTop = '10px';
+}

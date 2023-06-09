@@ -1,5 +1,3 @@
-import { showMessage } from './show_message';
-
 // Get a reference to the Firebase Authentication service
 var auth = firebase.auth();
 
@@ -35,3 +33,10 @@ forgotPasswordForm.addEventListener('submit', function (event) {
             showMessage('Error checking email: ' + error.message, 'red');
         });
 });
+
+function showMessage(message, color) {
+    messageDiv.textContent = message;
+    messageDiv.style.color = color;
+    messageDiv.style.fontWeight = 'bold';
+    messageDiv.style.marginTop = '10px';
+  }

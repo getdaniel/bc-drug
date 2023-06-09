@@ -1,5 +1,3 @@
-import { showMessage } from './show_message';
-
 // Get a reference to the Firebase Realtime Database
 const database = firebase.database();
 
@@ -50,3 +48,10 @@ registerForm.addEventListener('submit', event => {
             showMessage('Error creating user: ' + error.message, 'red');
         });
 });
+
+function showMessage(message, color) {
+    messageDiv.textContent = message;
+    messageDiv.style.color = color;
+    messageDiv.style.fontWeight = 'bold';
+    messageDiv.style.marginTop = '10px';
+  }
