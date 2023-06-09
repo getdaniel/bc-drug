@@ -48,14 +48,14 @@ def prediction_output(uploaded_file):
     # st.write(desc.shape)
 
     # Read descriptor list used in previously built model
-    # st.markdown(
-    #             "<h4 style='text-align: center;'>Subset of Descriptors from the Models</h4>",
-    #             unsafe_allow_html=True
-    #             )
+    st.markdown(
+                "<h4 style='text-align: center;'>Subset of Descriptors from the Models</h4>",
+                unsafe_allow_html=True
+                )
     Xlist = list(pd.read_csv('ML/descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
-    # st.write(desc_subset)
-    # st.write(desc_subset.shape)
+    st.write(desc_subset)
+    st.write(desc_subset.shape)
 
     # Apply trained model to make prediction
     build_model(load_data, desc_subset)
