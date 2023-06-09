@@ -1,13 +1,13 @@
 ## Drug Discovery Using ML for Breast Cancer
 
 <p align="center">
-  <img src="https://github.com/Endale2112/drug-discovery/blob/main/assets/landing.png" alt="Landing image">
+  <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/landing.png" alt="Landing image">
 </p>
 
 ### Description
 <p> An ML-driven application for drug discovery in breast cancer utilizes machine learning algorithms to predict the pIC50 values of chemical compounds. By analyzing the relationships between compound structures and their biological activities against breast cancer, the application can provide valuable insights into the efficacy of potential drug candidates. By leveraging molecular features and descriptors, the application assists researchers in identifying promising compounds, accelerating the development of effective treatments for breast cancer.</p>
 <p align="center">
-  <img src="https://github.com/Endale2112/drug-discovery/blob/main/assets/tabular_output.png" alt="Tabular Output">
+  <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/tabular_output.png" alt="Tabular Output">
 </p>
 
 #### About the Project
