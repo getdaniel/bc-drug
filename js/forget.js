@@ -11,32 +11,33 @@ forgotPasswordForm.addEventListener('submit', function (event) {
 
     var email = emailInput.value;
 
-    // Validate the email format
-    var emailRegex = /^\S+@\S+\.\S+$/;
-    if (!emailRegex.test(email)) {
-        messageDiv.textContent = 'Invalid email format. Please enter a valid email.';
-        return; // Exit the function
-    }
-
     // Check if the email exists in the Firebase Authentication system
     auth.fetchSignInMethodsForEmail(email)
         .then(function (signInMethods) {
             if (signInMethods.length === 0) {
-                messageDiv.textContent = 'Email not found. Please enter a registered email.';
+                showMessage('Email not found. Please enter a registered email.', 'red');
                 return; // Exit the function
             }
 
             // Send password reset email
             auth.sendPasswordResetEmail(email)
                 .then(function () {
-                    messageDiv.textContent = 'Password reset email sent. Check your inbox.';
+                    showMessage('Password reset email sent. Check your inbox.', 'green');
                     forgotPasswordForm.reset(); // Clear the form
                 })
                 .catch(function (error) {
-                    messageDiv.textContent = 'Error sending password reset email: ' + error.message;
+                    showMessage('Error sending password reset email: ' + error.message, 'red');
                 });
         })
         .catch(function (error) {
-            messageDiv.textContent = 'Error checking email: ' + error.message;
+            showMessage('Error checking email: ' + error.message, 'red');
         });
 });
+
+// Function to display the message with custom styling
+function showMessage(message, color) {
+    messageDiv.textContent = message;
+    messageDiv.style.color = color;
+    messageDiv.style.fontWeight = 'bold';
+    messageDiv.style.marginTop = '10px';
+}

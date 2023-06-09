@@ -19,9 +19,19 @@ loginForm.addEventListener('submit', (event) => {
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
-        messageDiv.textContent = 'Wrong password';
+        showMessage('Wrong password', 'red');
       } else if (error.code === 'auth/user-not-found') {
-        messageDiv.textContent = 'Email not found';
+        showMessage('Email not found', 'red');
+      } else {
+        showMessage('An error occurred. Please try again later.', 'red');
       }
     });
 });
+
+// Function to display the message with custom styling
+function showMessage(message, color) {
+  messageDiv.textContent = message;
+  messageDiv.style.color = color;
+  messageDiv.style.fontWeight = 'bold';
+  messageDiv.style.marginTop = '10px';
+}

@@ -20,7 +20,7 @@ registerForm.addEventListener('submit', event => {
 
     // Check if the password and confirm password match
     if (password !== confirmPassword) {
-        messageDiv.textContent = 'Password and confirm password do not match';
+        showMessage('Password and confirm password do not match', 'red');
         return; // Exit the function
     }
 
@@ -37,13 +37,22 @@ registerForm.addEventListener('submit', event => {
             })
                 .then(() => {
                     registerForm.reset(); // Clear the form
+                    showMessage('User registered successfully', 'green');
                     window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
                 })
                 .catch(error => {
-                    messageDiv.textContent = 'Error registering user: ' + error.message;
+                    showMessage('Error registering user: ' + error.message, 'red');
                 });
         })
         .catch(error => {
-            messageDiv.textContent = 'Error creating user: ' + error.message;
+            showMessage('Error creating user: ' + error.message, 'red');
         });
 });
+
+// Function to display the message with custom styling
+function showMessage(message, color) {
+    messageDiv.textContent = message;
+    messageDiv.style.color = color;
+    messageDiv.style.fontWeight = 'bold';
+    messageDiv.style.marginTop = '10px';
+}

@@ -42,3 +42,13 @@ html, body {
     background-color: darkgreen;
     cursor: pointer;
 }
+
+.forgot-password-link {
+    color: blue; /* Change the color to your desired color */
+    text-decoration: underline;
+    text-align: right;
+}
+
+.forgot-password-link:hover {
+    text-decoration: none;
+}
