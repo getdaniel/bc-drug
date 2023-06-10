@@ -32,19 +32,19 @@
 | 17  | [style.css](https://github.com/getdaniel/bc-drug/blob/main/style.css)   | File    | ---                                                                                                             | Styles the whole HTML pages.            |
 
 ### Usage
-Step :one::
+#### Step :one::
   Access the website with [Drug Discovery Using ML for Breast Cancer](https://getdaniel.github.io/bc-drug/)
 
-Step :two::
+#### Step :two::
   Navigate to the Register button that found on the right side of the header of the landing page.
 
-Step :three::
+#### Step :three::
   Fill the necessary form of input data and press register button.
 
-Step :four::
+#### Step :four::
   If registered successfully, it will redirect to the main page of the website.
 
-Step :five::
+#### Step :five::
   Upload a chemical SMILES form within text format as example of(Two column with first to the **SMILES notation** of the chemicals, the second column with **ChEMBL ID**):
   ```
     CCOc1nn(-c2cccc(OCc3ccccc3)c2)c(=O)o1 CHEMBL133897
