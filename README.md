@@ -53,6 +53,11 @@
     O=C(N1CCCCC1)n1nc(-c2ccc(Cl)cc2)nc1SCC(F)(F)F CHEMBL130628
     CSc1nc(-c2ccc(OC(F)(F)F)cc2)nn1C(=O)N(C)C CHEMBL130478
   ```
+  **NB**: If the file is invalid, it throughs an error; therefore, upload a valid **.txt** file
+
+#### Step :six::
+  Press **Predict** button to see the output of **pIC50** value of the above like chemicals.
+
 ### About Us
 - [getdaniel](https://github.com/getdaniel) - [Gmail](mailto:danielgetaneh2011@gmail.com)
 - [Endale2112](https://github.com/Endale2112) - [Gmail](mailto:endaleontop2112@gmail.com)
