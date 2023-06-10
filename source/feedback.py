@@ -15,7 +15,6 @@ def handle_user_feedback(modal):
                     .login-form {
                         max-width: 400px;
                         margin: 0 auto;
-                        background-color: #f7f7f7;
                         padding: 5px;
                         display: flex;
                         flex-direction: column;
