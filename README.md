@@ -33,19 +33,19 @@
 
 ### Usage
 #### Step :one::
-  Access the website with [Drug Discovery Using ML for Breast Cancer](https://getdaniel.github.io/bc-drug/)
+Access the website with [Drug Discovery Using ML for Breast Cancer](https://getdaniel.github.io/bc-drug/)
 
 #### Step :two::
-  Navigate to the Register button that found on the right side of the header of the landing page.
+Navigate to the Register button that is found on the right side of the header of the landing page.
 
 #### Step :three::
-  Fill the necessary form of input data and press register button.
+Fill the necessary form of input data and press the register button.
 
 #### Step :four::
-  If registered successfully, it will redirect to the main page of the website.
+If registered successfully, it will redirect you to the main page of the website.
 
 #### Step :five::
-  Upload a chemical SMILES form within text format as example of(Two column with first to the **SMILES notation** of the chemicals, the second column with **ChEMBL ID**):
+Upload a chemical SMILES file in text format. The file should have two columns: the first column containing the SMILES notation of the chemicals and the second column containing the ChEMBL ID. Here's an example:
   ```
     CCOc1nn(-c2cccc(OCc3ccccc3)c2)c(=O)o1 CHEMBL133897
     O=C(N1CCCCC1)n1nc(-c2ccc(Cl)cc2)nc1SCC1CC1 CHEMBL336398
@@ -53,10 +53,11 @@
     O=C(N1CCCCC1)n1nc(-c2ccc(Cl)cc2)nc1SCC(F)(F)F CHEMBL130628
     CSc1nc(-c2ccc(OC(F)(F)F)cc2)nn1C(=O)N(C)C CHEMBL130478
   ```
-  **NB**: If the file is invalid, it throughs an error; therefore, upload a valid **.txt** file
+
+**NB**: Make sure your file is in a valid **.txt** format.
 
 #### Step :six::
-  Press **Predict** button to see the output of **pIC50** value of the above like chemicals.
+Press the **Predict** button to see the output of the **pIC50** value of the chemicals. You can find more details [here](https://github.com/getdaniel/bc-drug#description).
 
 ### About Us
 - [getdaniel](https://github.com/getdaniel) - [Gmail](mailto:danielgetaneh2011@gmail.com)
