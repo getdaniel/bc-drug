@@ -11,22 +11,13 @@ def handle_user_feedback(modal):
             #     st.success("Feedback submitted successfully.")
             # HTML code for the form
             html_form = """
-            <div class="container">
-            <h1>Email Form</h1>
-            <form>
-                <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" placeholder="Enter your message" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                <button type="submit">Submit</button>
-                </div>
-            </form>
-            </div>
+                <form>
+                    <label> Email: </label>
+                    <input type="email">
+                    <label> Message: </label>
+                    <textarea></textarea>
+                    <input type="submit">
+                </form>
             """
 
             # Render the HTML form
