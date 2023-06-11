@@ -39,14 +39,14 @@
 | 17  | [style.css](https://github.com/getdaniel/bc-drug/blob/main/style.css)   | File    | ---                                                                                                             | Styles the whole HTML pages.            |
 
 #### Importance of the Project
-- Accelerating Progress through Machine Learning
-- Machine learning-driven application predicts pIC50 values of chemical compounds.
-- Identification of potential drug candidates for breast cancer.
-- Analysis of compound structures and their relationships with biological activities.
-- Valuable insights into the efficacy of drug candidates.
-- Accelerates the identification and development of promising compounds.
-- Significant contribution to the battle against breast cancer.
-- Potential to transform patient outcomes and bring new hope for the future.
+:heavy_check_mark: Accelerating Progress through Machine Learning
+:heavy_check_mark: Machine learning-driven application predicts pIC50 values of chemical compounds.
+:heavy_check_mark: Identification of potential drug candidates for breast cancer.
+:heavy_check_mark: Analysis of compound structures and their relationships with biological activities.
+:heavy_check_mark: Valuable insights into the efficacy of drug candidates.
+:heavy_check_mark: Accelerates the identification and development of promising compounds.
+:heavy_check_mark: Significant contribution to the battle against breast cancer.
+:heavy_check_mark: Potential to transform patient outcomes and bring new hope for the future.
 
 <p align="center">
   <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/drug_discovery_process.png" alt="Drug Discovery Process">
