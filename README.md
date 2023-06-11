@@ -54,19 +54,19 @@
 ### Usage
 - To use the deployed system of the project, follow the following steps.
 #### Step :one::
-- Access the website with [Drug Discovery Using ML for Breast Cancer](https://getdaniel.github.io/bc-drug/)
+:point_right: Access the website with [Drug Discovery Using ML for Breast Cancer](https://getdaniel.github.io/bc-drug/)
 
 #### Step :two::
-- Navigate to the Register button that is found on the right side of the header of the landing page.
+:point_right: Navigate to the Register button that is found on the right side of the header of the landing page.
 
 #### Step :three::
-- Fill the necessary form of input data and press the register button.
+:point_right: Fill the necessary form of input data and press the register button.
 
 #### Step :four::
-- If registered successfully, it will redirect you to the main page of the website.
+:point_right: If registered successfully, it will redirect you to the main page of the website.
 
 #### Step :five::
-- Upload a chemical SMILES file in text format. The file should have two columns: the first column containing the SMILES notation of the chemicals and the second column containing the ChEMBL ID. Here's an example:
+:point_right: Upload a chemical SMILES file in text format. The file should have two columns: the first column containing the SMILES notation of the chemicals and the second column containing the ChEMBL ID. Here's an example:
   ```
     CCOc1nn(-c2cccc(OCc3ccccc3)c2)c(=O)o1 CHEMBL133897
     O=C(N1CCCCC1)n1nc(-c2ccc(Cl)cc2)nc1SCC1CC1 CHEMBL336398
@@ -78,14 +78,14 @@
 **NB**: Make sure your file is in a valid **.txt** format and CSV file content.
 
 #### Step :six::
-- Press the **Predict** button to see the output of the **pIC50** value of the chemicals. You can find more details [here](https://github.com/getdaniel/bc-drug#description).
+:point_right: Press the **Predict** button to see the output of the **pIC50** value of the chemicals. You can find more details [here](https://github.com/getdaniel/bc-drug#description).
 
 #### Others
-- After having an acount the user can login and use forget password functionality using the registered account.
+:point_right: After having an acount the user can login and use forget password functionality using the registered account.
 
 ### About Us
 - [getdaniel](https://github.com/getdaniel) - [Gmail](mailto:danielgetaneh2011@gmail.com)
-- [Endale2112](https://github.com/Endale2112) - [Gmail](mailto:endaleontop2112@gmail.com)
+- [Endale1221](https://github.com/Endale1221) - [Gmail](mailto:endaleontop1221@gmail.com)
 
 ### LICENSE
 - The license of this project is accessed through [LICENSE](https://github.com/Endale2112/drug-discovery/blob/main/LICENSE)
