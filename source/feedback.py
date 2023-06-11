@@ -13,8 +13,9 @@ def handle_user_feedback(modal):
             html_form = """
                 <style>
                     .login-form {
-                        max-width: 400px;
+                        max-width: 750px;
                         margin: 0 auto;
+                        width: 100%;
                         padding: 5px;
                         display: flex;
                         flex-direction: column;
@@ -51,7 +52,7 @@ def handle_user_feedback(modal):
                 </style>
 
                 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-                    <form class="login-form">
+                    <form class="login-form" id="feedback-form">
                         <h3 style="text-align: center;">Send Us Feedback</h3>
                         <label for="email">
                             Email:
@@ -64,6 +65,35 @@ def handle_user_feedback(modal):
                         <input type="submit" value="Submit">
                     </form>
                 </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+                <script src="./js/firebase-config.js"></script>
+                <script>
+                    // Get a reference to the Firebase database
+                    var database = firebase.database();
+                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var form = document.getElementById("feedback-form");
+                        form.addEventListener("submit", function (e) {
+                            e.preventDefault(); // Prevent form submission
+
+                            // Get form values
+                            var email = document.getElementById("email").value;
+                            var message = document.getElementById("message").value;
+
+                            // Save feedback to Firebase database
+                            var feedbackRef = database.ref("feedbacks").push();
+                            feedbackRef.set({
+                                email: email,
+                                message: message
+                            });
+
+                            // Reset form fields
+                            form.reset();
+                            alert("Feedback submitted successfully.");
+                        });
+                    });
+                </script>
             """
 
             # Render the HTML form
