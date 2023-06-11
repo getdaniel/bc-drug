@@ -46,7 +46,7 @@
 :heavy_check_mark: Valuable insights into the efficacy of drug candidates. <br>
 :heavy_check_mark: Accelerates the identification and development of promising compounds. <br>
 :heavy_check_mark: Significant contribution to the battle against breast cancer. <br>
-:heavy_check_mark: Potential to transform patient outcomes and bring new hope for the future. <br>
+:heavy_check_mark: Potential to transform patient outcomes and bring new hope for the future. <br> <br> <br>
 
 <p align="center">
   <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/drug_discovery_process.png" alt="Drug Discovery Process">
