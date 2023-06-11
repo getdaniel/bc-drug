@@ -57,7 +57,7 @@ def main():
 
     # handle_settings(setting_modal)
 
-    feedback_modal = Modal("", key="feedback_button", max_width=325)
+    feedback_modal = Modal("", key="feedback_button", max_width=400)
     if st.sidebar.button("Feedback", use_container_width=True):
         feedback_modal.open()
 
