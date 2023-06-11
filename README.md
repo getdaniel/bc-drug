@@ -36,7 +36,9 @@
 | 17  | [style.css](https://github.com/getdaniel/bc-drug/blob/main/style.css)   | File    | ---                                                                                                             | Styles the whole HTML pages.            |
 
 #### Importance of the Project
-
+<p align="center">
+  <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/drug_discovery_process.jpg" alt="Drug Discovery Process">
+</p>
 ### Usage
 - To use the deployed system of the project, follow the following steps.
 #### Step :one::
