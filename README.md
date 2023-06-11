@@ -46,7 +46,7 @@
 - Potential to transform patient outcomes and bring new hope for the future.
 
 <p align="center">
-  <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/drug_discovery_process.jpg" alt="Drug Discovery Process">
+  <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/drug_discovery_process.png" alt="Drug Discovery Process">
 </p>
 
 - After obtaining higher pIC50 values for the chemicals, there are must be **prioritize** and **experimental validation** of the chemicals will be followe.
