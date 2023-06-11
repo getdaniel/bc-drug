@@ -67,7 +67,7 @@ def handle_user_feedback(modal):
                 </div>
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-                <script src="https://github.com/getdaniel/bc-drug/blob/main/js/firebase-config.js"></script>
+                <script src="https://raw.githubusercontent.com/getdaniel/bc-drug/main/js/firebase-config.js"></script>
                 <script>
                     // Get a reference to the Firebase database
                     var database = firebase.database();
