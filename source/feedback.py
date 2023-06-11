@@ -13,7 +13,7 @@ def handle_user_feedback(modal):
             html_form = """
                 <style>
                     .login-form {
-                        max-width: 350px;
+                        max-width: 300px;
                         margin: 0 auto;
                         width: 100%;
                         padding: 5px;
@@ -110,11 +110,10 @@ def handle_user_feedback(modal):
                             successMessage.className = "success-message";
                             successMessage.textContent = "Feedback submitted successfully.";
                             messageContainer.appendChild(successMessage);
-                            alert("Feedback submitted successfully.");
                         });
                     });
                 </script>
             """
 
             # Render the HTML form
-            st.components.v1.html(html_form, height=300)
+            st.components.v1.html(html_form, height=350)
