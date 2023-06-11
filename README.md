@@ -49,7 +49,14 @@
   <img src="https://github.com/getdaniel/bc-drug/blob/main/assets/drug_discovery_process.png" alt="Drug Discovery Process">
 </p>
 
-- After obtaining higher pIC50 values for the chemicals, there are must be **prioritize** and **experimental validation** of the chemicals will be followe.
+- After obtaining higher pIC50 values for the chemicals, there are must be **prioritize** and **experimental validation** of the chemicals will be followed.
+:eight_spoked_asterisk: Here are some key reasons why the pIC50 value is significant:
+:heavy_check_mark: Quantitative Measure of Potency
+:heavy_check_mark: Comparative Analysis
+:heavy_check_mark: Predictive Modeling
+:heavy_check_mark: Structure-Activity Relationship (SAR) Analysis
+:heavy_check_mark: Lead Optimization
+:heavy_check_mark: Decision-Making in Preclinical Studies
 
 ### Usage
 - To use the deployed system of the project, follow the following steps.
