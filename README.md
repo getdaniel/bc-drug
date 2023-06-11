@@ -53,13 +53,13 @@
 </p>
 
 - After obtaining higher pIC50 values for the chemicals, there are must be **prioritize** and **experimental validation** of the chemicals will be followed. <br>
-:eight_spoked_asterisk: Here are some key reasons why the pIC50 value is significant: <br>
-  :heavy_check_mark: Quantitative Measure of Potency <br>
-  :heavy_check_mark: Comparative Analysis <br>
-  :heavy_check_mark: Predictive Modeling <br>
-  :heavy_check_mark: Structure-Activity Relationship (SAR) Analysis <br>
- :heavy_check_mark: Lead Optimization <br>
- :heavy_check_mark: Decision-Making in Preclinical Studies <br>
+:eight_spoked_asterisk: **Here are some key reasons why the pIC50 value is significant**: <br>
+:heavy_check_mark: Quantitative Measure of Potency <br>
+:heavy_check_mark: Comparative Analysis <br>
+:heavy_check_mark: Predictive Modeling <br>
+:heavy_check_mark: Structure-Activity Relationship (SAR) Analysis <br>
+:heavy_check_mark: Lead Optimization <br>
+:heavy_check_mark: Decision-Making in Preclinical Studies <br>
 
 ### Usage
 - To use the deployed system of the project, follow the following steps.
