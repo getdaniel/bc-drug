@@ -13,7 +13,7 @@ def handle_user_feedback(modal):
             html_form = """
                 <style>
                     .login-form {
-                        max-width: 350px;
+                        max-width: 340px;
                         margin: 0 auto;
                         width: 100%;
                         padding: 5px;
@@ -116,4 +116,4 @@ def handle_user_feedback(modal):
             """
 
             # Render the HTML form
-            st.components.v1.html(html_form, height=350)
+            st.components.v1.html(html_form, width=350, height=350)
