@@ -116,4 +116,4 @@ def handle_user_feedback(modal):
             """
 
             # Render the HTML form
-            st.components.v1.html(html_form, width=300, height=350)
+            st.components.v1.html(html_form, height=350)
