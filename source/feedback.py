@@ -13,7 +13,6 @@ def handle_user_feedback(modal):
             html_form = """
                 <style>
                     .login-form {
-                        max-width: 300px;
                         margin: 0 auto;
                         width: 100%;
                         padding: 5px;
