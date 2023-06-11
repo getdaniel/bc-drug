@@ -67,8 +67,20 @@ def handle_user_feedback(modal):
                 </div>
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-                <script src="https://drive.google.com/file/d/1TB0MzSdccvCq8V6mAX-YJX6XUI45g5Yv/view?usp=sharing"></script>
                 <script>
+                    const firebaseConfig = {
+                        apiKey: "AIzaSyDWlsnIKRS93tzZkb58NjvW0c7BIkUMwvA",
+                        authDomain: "drug-discovery-cbde6.firebaseapp.com",
+                        databaseURL: "https://drug-discovery-cbde6-default-rtdb.firebaseio.com",
+                        projectId: "drug-discovery-cbde6",
+                        storageBucket: "drug-discovery-cbde6.appspot.com",
+                        messagingSenderId: "504463909250",
+                        appId: "1:504463909250:web:d1fb6476bb4a59ca8d6f9b",
+                        measurementId: "G-0GMN586SER"
+                    };
+
+                    firebase.initializeApp(firebaseConfig);
+
                     // Get a reference to the Firebase database
                     var database = firebase.database();
                     
