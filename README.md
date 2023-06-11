@@ -31,7 +31,10 @@
 | 16  | [requirements.txt](https://github.com/getdaniel/bc-drug/blob/main/requirements.txt) | File | ---                                                                                                             | Streamlit packages that is used for the application to run            |
 | 17  | [style.css](https://github.com/getdaniel/bc-drug/blob/main/style.css)   | File    | ---                                                                                                             | Styles the whole HTML pages.            |
 
+#### Importance of the Project
+
 ### Usage
+- To use the deployed system of the project, follow the following steps.
 #### Step :one::
 Access the website with [Drug Discovery Using ML for Breast Cancer](https://getdaniel.github.io/bc-drug/)
 
@@ -54,8 +57,10 @@ Upload a chemical SMILES file in text format. The file should have two columns: 
     CSc1nc(-c2ccc(OC(F)(F)F)cc2)nn1C(=O)N(C)C CHEMBL130478
   ```
 
-**NB**: Make sure your file is in a valid **.txt** format.
+**NB**: Make sure your file is in a valid **.txt** format and CSV file content.
 
+#### Others
+- After having an acount the user can login and use forget password functionality using the registered account.
 #### Step :six::
 Press the **Predict** button to see the output of the **pIC50** value of the chemicals. You can find more details [here](https://github.com/getdaniel/bc-drug#description).
 
