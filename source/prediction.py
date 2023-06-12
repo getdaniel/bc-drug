@@ -73,3 +73,7 @@ def prediction_output(uploaded_file):
     except pd.errors.EmptyDataError:
         st.error("The input file is empty or contains no valid data.")
         return
+
+    except pd.errors.ParserError:
+        st.error("The input file is not a valid CSV file.")
+        return
