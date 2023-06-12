@@ -76,7 +76,7 @@
 :point_right: If registered successfully, it will redirect you to the main page of the website.
 
 #### Step :five::
-:point_right: Upload a chemical SMILES file in text format. The file should have two columns: the first column containing the SMILES notation of the chemicals and the second column containing the ChEMBL ID. Here's an example:
+:point_right: Upload a chemical SMILES file. The file should have two columns: the first column containing the SMILES notation of the chemicals and the second column containing the ChEMBL ID. Here's an example:
   ```
     CCOc1nn(-c2cccc(OCc3ccccc3)c2)c(=O)o1 CHEMBL133897
     O=C(N1CCCCC1)n1nc(-c2ccc(Cl)cc2)nc1SCC1CC1 CHEMBL336398
