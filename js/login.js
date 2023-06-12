@@ -15,6 +15,7 @@ loginForm.addEventListener('submit', (event) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       loginForm.reset(); // Clear the form
+      showMessage('Please Wait a moment...', 'green');
       window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
     })
     .catch((error) => {
