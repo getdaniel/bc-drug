@@ -1,3 +1,1 @@
- openjdk-17-jre-headless:amd64
- openjdk-17-jre:amd64
- default-jre
+default-jre
