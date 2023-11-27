@@ -16,7 +16,7 @@ loginForm.addEventListener('submit', (event) => {
     .then(() => {
       loginForm.reset(); // Clear the form
       showMessage('Please Wait a moment...', 'green');
-      window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
+      window.location.href = 'https://bc-drug.streamlit.app/'; // Redirect to Streamlit app
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
