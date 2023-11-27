@@ -38,7 +38,7 @@ registerForm.addEventListener('submit', event => {
                 .then(() => {
                     registerForm.reset(); // Clear the form
                     showMessage('User registered successfully', 'green');
-                    window.location.href = 'https://getdaniel-bc-drug.streamlit.app/'; // Redirect to Streamlit app
+                    window.location.href = 'https://bc-drug.streamlit.app/'; // Redirect to Streamlit app
                 })
                 .catch(error => {
                     showMessage('Error registering user: ' + error.message, 'red');
